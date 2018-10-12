@@ -1,30 +1,15 @@
-cwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwc
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v          wwwww          wwwwwwwwww          wwwwwwwwww          wwwww          v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v               wwwwwwwwww          wwwwwwwwww          wwwwwwwwww               v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-cwwwwwwwwww             wwwwwwwwwwwwwwwwwwwwwwwwwwwwww                 wwwwwwwwwwc
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v                                                                                v
-v               cwwww               cwwwwwwwwc               wwwwc               v
-v               v                   v        v                   v               v
-v               v                   v        v                   v               v
-v               v                   v        v                   v               v
-v               v                   v        v                   v               v
-v               v                   v        v                   v               v
-cwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwc
+72222222222222222229
+4                  6
+4                  6
+4                  6
+4                  6
+4    g22d          6
+4                  6
+4                  6
+4                  6
+4                  6
+4                  6
+4       7229       6
+4       4  6       6
+4       4  6       6
+12222222222222222223
