@@ -10,7 +10,11 @@ void pause()
   SDL_Event event;
   while (continuer) {
     SDL_WaitEvent(&event);
-    if(event.type == SDL_QUIT) { continuer = 0; }
+    switch (event.type) {
+      case SDL_QUIT:    continuer = 0; break;
+      case SDL_KEYDOWN: switch (event.key.keysym.sym) {
+        case SDLK_ESCAPE: continuer = 0; break; }
+    }
   }
 }
 
@@ -64,16 +68,6 @@ void load_map(int H, int L, SDL_Surface *screen)
   SDL_FreeSurface(wg);
 }
 
-void load_tank(SDL_Surface *screen)
-{
-  SDL_Surface *tank;
-  SDL_Rect posTK; posTK.x = 0; posTK.y = 0;
-  tank = IMG_Load("img/tanks_bleu.png");
-  SDL_BlitSurface(tank, NULL, screen, &posTK);
-  SDL_Flip(screen);
-  SDL_FreeSurface(tank);
-}
-
 /************************************************************************************/
 
 int main(int argc, char *argv[])
@@ -82,7 +76,7 @@ int main(int argc, char *argv[])
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Surface *screen;
   unsigned int L = 20; unsigned int H = 15; unsigned int SCL = 32;
-  screen = SDL_SetVideoMode(SCL*L, SCL*H, 32, SDL_HWSURFACE); // 640 480
+  screen = SDL_SetVideoMode(SCL*L, SCL*H, 32, SDL_HWSURFACE /*| SDL_FULLSCREEN*/); // 640 480
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
