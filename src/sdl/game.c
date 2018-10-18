@@ -45,7 +45,7 @@ void move_tank(SDL_Surface *screen, tank *TK_user)
 
 int key_action(SDL_Surface *screen, int continuer, tank *TK_user)
 {
-  SDL_EnableKeyRepeat(10, 10);
+  SDL_EnableKeyRepeat(1, 1);
   SDL_Event event;
   SDL_WaitEvent(&event);
 
@@ -54,10 +54,10 @@ int key_action(SDL_Surface *screen, int continuer, tank *TK_user)
     case SDL_KEYDOWN: switch (event.key.keysym.sym) {
       case SDLK_ESCAPE: continuer = 0; break;
       // Mouvement Char
-      case SDLK_UP:     TK_user->direction = 8; TK_user->posY -= 50; break;
-      case SDLK_DOWN:   TK_user->direction = 2; TK_user->posY += 50; break;
-      case SDLK_RIGHT:  TK_user->direction = 4; TK_user->posX += 50; break;
-      case SDLK_LEFT:   TK_user->direction = 6; TK_user->posX -= 50; break;
+      case SDLK_UP:     TK_user->direction = 8; TK_user->posY -= SCL; break;
+      case SDLK_DOWN:   TK_user->direction = 2; TK_user->posY += SCL; break;
+      case SDLK_RIGHT:  TK_user->direction = 4; TK_user->posX += SCL; break;
+      case SDLK_LEFT:   TK_user->direction = 6; TK_user->posX -= SCL; break;
       // case SDLK_SPACE:  direction = 5; break; 
     }
   }
@@ -70,8 +70,8 @@ int game(SDL_Surface *screen)
 {
   tank *TK_user;
   TK_user = malloc(sizeof(tank)); // declare user tank
-  TK_user->posX = SCL * L / 2 - 82; 
-  TK_user->posY = SCL * H / 2 - 82;
+  TK_user->posX = L / 2 * SCL; 
+  TK_user->posY = H / 2 * SCL;
   TK_user->direction = 2;
   
   int continuer = 1;
