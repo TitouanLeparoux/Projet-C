@@ -4,7 +4,7 @@
 #include <SDL/SDL.h>
 #include <SDL_image.h>
 
-void load_map(int H, int L, SDL_Surface *screen)
+void load_map(int H, int L)
 { 
   FILE *map = fopen("../map/map2.txt", "r");
   
@@ -27,6 +27,8 @@ void load_map(int H, int L, SDL_Surface *screen)
     posBG.y += SCL;
   }
   // SDL_Flip(screen);
+
+  fclose(map);
 
   SDL_FreeSurface(durt);
   SDL_FreeSurface(w1);

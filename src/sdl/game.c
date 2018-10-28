@@ -15,7 +15,7 @@ typedef struct {
   int   destruction;
 }tank;
 
-void move_tank(SDL_Surface *screen, tank *TK_user)
+void move_tank(tank *TK_user)
 {
   SDL_Surface *durt, *img_up, *img_down, *img_right, *img_left;
   SDL_Rect posTK; posTK.x = TK_user->posX; posTK.y = TK_user->posY;
@@ -25,7 +25,7 @@ void move_tank(SDL_Surface *screen, tank *TK_user)
   img_right = IMG_Load("img/tank/tankB_right.png");
   img_left  = IMG_Load("img/tank/tankB_left.png");
 
-  load_map(H, L, screen);
+  load_map(H, L);
 
   switch (TK_user->direction) {
     case 8: SDL_BlitSurface(img_up,    NULL, screen, &posTK); break;
@@ -43,7 +43,7 @@ void move_tank(SDL_Surface *screen, tank *TK_user)
   SDL_FreeSurface(img_left);
 }
 
-int key_action(SDL_Surface *screen, int continuer, tank *TK_user)
+int key_action(int continuer, tank *TK_user)
 {
   SDL_EnableKeyRepeat(1, 1);
   SDL_Event event;
@@ -61,12 +61,12 @@ int key_action(SDL_Surface *screen, int continuer, tank *TK_user)
       // case SDLK_SPACE:  direction = 5; break; 
     }
   }
-  move_tank(screen, TK_user);
+  move_tank(TK_user);
 
   return continuer;
 }
 
-int game(SDL_Surface *screen)
+int game()
 {
   tank *TK_user;
   TK_user = malloc(sizeof(tank)); // declare user tank
@@ -76,7 +76,7 @@ int game(SDL_Surface *screen)
   
   int continuer = 1;
   while (continuer) {
-    continuer = key_action(screen, continuer, TK_user);
+    continuer = key_action(continuer, TK_user);
   }
   return 0;
 }
