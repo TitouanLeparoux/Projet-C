@@ -3,18 +3,6 @@
 #include <time.h>
 #include <SDL/SDL.h>
 
-typedef struct {
-  int   direction;
-  int   posX;
-  int   posY;
-  int   blindage;
-  int   blindage_origin;
-  int   touches;
-  char  type;
-  int   etat;
-  int   destruction;
-}tank;
-
 void move_tank(tank *TK_user)
 {
   SDL_Surface *durt, *img_up, *img_down, *img_right, *img_left;
@@ -45,7 +33,7 @@ void move_tank(tank *TK_user)
 
 int key_action(int continuer, tank *TK_user)
 {
-  SDL_EnableKeyRepeat(1, 1);
+  SDL_EnableKeyRepeat(10, 10);
   SDL_Event event;
   SDL_WaitEvent(&event);
 
@@ -75,8 +63,10 @@ int game()
   TK_user->direction = 2;
   
   int continuer = 1;
+  IMG.load = 0;
   while (continuer) {
     continuer = key_action(continuer, TK_user);
   }
+  deload_img();
   return 0;
 }
