@@ -25,7 +25,7 @@ void move_tank(tank *TK_user)
   img_right = IMG_Load("img/tank/tankB_right.png");
   img_left  = IMG_Load("img/tank/tankB_left.png");
 
-  load_map(H, L);
+  load_map();
 
   switch (TK_user->direction) {
     case 8: SDL_BlitSurface(img_up,    NULL, screen, &posTK); break;

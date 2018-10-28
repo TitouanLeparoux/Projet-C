@@ -4,7 +4,34 @@
 #include <SDL/SDL.h>
 #include <SDL_image.h>
 
-void load_map(int H, int L)
+typedef struct {
+  char type;
+  char life;
+}blockMap;
+
+void load_tabMap () 
+{
+  blockMap **tabMap = malloc(H * L * sizeof(blockMap));
+
+  FILE *map = fopen("src/design/map/map2.txt", "r");
+
+  for (int j = 0; j < H+1; j++) { 
+    for (int i = 0; i < L+1; i++) {
+      switch (getc(map)) {
+        case 'w':
+          tabMap[j][i].type = 'w';
+          tabMap[j][i].life = 1;
+          break; 
+        default: /* RIEN */ ; break; 
+      }
+    }
+  }
+  
+  fclose(map);
+  // return tabMap;
+}
+
+void load_map()
 { 
   FILE *map = fopen("../map/map2.txt", "r");
   
