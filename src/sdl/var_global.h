@@ -6,3 +6,8 @@ SDL_Surface *screen;
 
 // Struct image map
 img IMG;
+
+// tab of struct block
+char *tabMap_type;
+char *tabMap_life;
+int mLoad;

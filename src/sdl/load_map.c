@@ -6,24 +6,24 @@
 
 void load_tabMap()
 {
-  blockMap **tabMap = malloc(H * L * sizeof(blockMap));
+  tabMap_type = malloc(H * L * sizeof(char));
+  tabMap_life = malloc(H * L * sizeof(char));
 
-  FILE *map = fopen("src/design/map/map2.txt", "r");
+  FILE *map = fopen("../map/map2.txt", "r");
 
   for (int j = 0; j < H+1; j++) { 
     for (int i = 0; i < L+1; i++) {
       switch (getc(map)) {
         case 'w':
-          tabMap[j][i].type = 'w';
-          tabMap[j][i].life = 1;
+          tabMap_type [j*L+i] = 'w';
+          tabMap_life [j*L+i] = 1;
           break; 
-        default: /* RIEN */ ; break; 
+        default: /* NONE */ ; break; 
       }
     }
   }
   fclose(map);
-  free(tabMap);
-  // return tabMap;
+  mLoad = 1;
 }
 
 void load_img() 
@@ -51,11 +51,13 @@ void load_map()
   SDL_Rect posBG; posBG.x = 0; posBG.y = 0;
  
   if (IMG.load == 0) { load_img(); }
+  if (mLoad == 0) { load_tabMap(); }
+  
 
   for (int j = 0; j < H+1; j++) { 
     for (int i = 0; i < L+1; i++) {
       SDL_BlitSurface(IMG.durt, NULL, screen, &posBG);
-      switch (getc(map)) {
+      switch (tabMap_type[j*L+i]) {
         case 'w': SDL_BlitSurface(IMG.w1, NULL, screen, &posBG); break;
         case 'b': SDL_BlitSurface(IMG.w2, NULL, screen, &posBG); break;
         default:  /* RIEN */; break; }

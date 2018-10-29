@@ -64,7 +64,7 @@ int game()
   TK_user->direction = 2;
   
   int continuer = 1;
-  IMG.load = 0;
+  mLoad = 0;
   while (continuer) {
     continuer = key_action(continuer, TK_user);
   }
