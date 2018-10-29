@@ -11,3 +11,6 @@ img IMG;
 char *tabMap_type;
 char *tabMap_life;
 int mLoad;
+
+// make tank user
+tank *TK_user;

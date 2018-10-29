@@ -3,7 +3,7 @@
 #include <time.h>
 #include <SDL/SDL.h>
 
-void move_tank(tank *TK_user)
+void move_tank()
 {
   SDL_Surface *durt, *img_up, *img_down, *img_right, *img_left;
   SDL_Rect posTK; posTK.x = TK_user->posX; posTK.y = TK_user->posY;
@@ -31,7 +31,7 @@ void move_tank(tank *TK_user)
   SDL_FreeSurface(img_left);
 }
 
-int key_action(int continuer, tank *TK_user)
+int key_action(int continuer)
 {
   SDL_EnableKeyRepeat(10, 10);
   SDL_Event event;
@@ -42,21 +42,40 @@ int key_action(int continuer, tank *TK_user)
     case SDL_KEYDOWN: switch (event.key.keysym.sym) {
       case SDLK_ESCAPE: continuer = 0; break;
       // Mouvement Char
-      case SDLK_UP:     TK_user->direction = 8; TK_user->posY -= SCL; break;
-      case SDLK_DOWN:   TK_user->direction = 2; TK_user->posY += SCL; break;
-      case SDLK_RIGHT:  TK_user->direction = 4; TK_user->posX += SCL; break;
-      case SDLK_LEFT:   TK_user->direction = 6; TK_user->posX -= SCL; break;
+      case SDLK_UP:
+        TK_user->direction = 8;
+        if(tabMap_type[ ((TK_user->posY-1)/SCL)*L + ((TK_user->posX)/SCL)] != 'w' ) {
+          TK_user->posY -= SCL;
+        }
+        break;
+      case SDLK_DOWN:
+        TK_user->direction = 2;
+        if(tabMap_type[ ((TK_user->posY+SCL+1)/SCL)*L + ((TK_user->posX)/SCL)] != 'w' ) {
+          TK_user->posY += SCL;
+        }
+        break;
+      case SDLK_RIGHT:
+        TK_user->direction = 4; 
+        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX+SCL+1)/SCL)] != 'w' ){
+          TK_user->posX += SCL;
+        }
+        break;
+      case SDLK_LEFT:
+        TK_user->direction = 6;
+        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX-1)/SCL)] != 'w' ){
+          TK_user->posX -= SCL;
+        }
+        break;
       // case SDLK_SPACE:  direction = 5; break; 
     }
   }
-  move_tank(TK_user);
+  move_tank();
 
   return continuer;
 }
 
 int game()
 {
-  tank *TK_user;
   TK_user = malloc(sizeof(tank)); // make user tank
   TK_user->type = 'U'; // make tank an user and not an enemy
   TK_user->posX = L / 2 * SCL; 
@@ -66,7 +85,7 @@ int game()
   int continuer = 1;
   mLoad = 0;
   while (continuer) {
-    continuer = key_action(continuer, TK_user);
+    continuer = key_action(continuer);
   }
   
   deload_img();
