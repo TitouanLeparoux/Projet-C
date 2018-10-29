@@ -22,6 +22,7 @@ void load_tabMap()
     }
   }
   fclose(map);
+  free(tabMap);
   // return tabMap;
 }
 

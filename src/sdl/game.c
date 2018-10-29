@@ -57,7 +57,8 @@ int key_action(int continuer, tank *TK_user)
 int game()
 {
   tank *TK_user;
-  TK_user = malloc(sizeof(tank)); // declare user tank
+  TK_user = malloc(sizeof(tank)); // make user tank
+  TK_user->type = 'U'; // make tank an user and not an enemy
   TK_user->posX = L / 2 * SCL; 
   TK_user->posY = H / 2 * SCL;
   TK_user->direction = 2;
@@ -67,6 +68,7 @@ int game()
   while (continuer) {
     continuer = key_action(continuer, TK_user);
   }
+  
   deload_img();
   return 0;
 }
