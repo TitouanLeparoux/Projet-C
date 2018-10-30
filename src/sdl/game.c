@@ -1,5 +1,3 @@
-#include "move_tank.c"
-
 int game()
 {
   TK_user = malloc(sizeof(tank)); // make user tank

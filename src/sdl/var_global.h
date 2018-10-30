@@ -4,7 +4,7 @@ unsigned int H = 15;    // screen height in block of texture
 
 SDL_Surface *screen;
 
-// Struct image map
+// Struct image
 imgM IMGM;
 imgT IMGT;
 

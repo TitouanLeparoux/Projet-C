@@ -1,4 +1,4 @@
-void move_tank()
+void print_tank(tank *tankMove)
 {
   SDL_Rect posTK; posTK.x = TK_user->posX; posTK.y = TK_user->posY;
 
@@ -54,7 +54,7 @@ int key_action(int continuer)
       // case SDLK_SPACE:  direction = 5; break; 
     }
   }
-  move_tank();
+  print_tank(TK_user);
 
   return continuer;
 }

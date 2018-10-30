@@ -12,6 +12,7 @@
 
 #include "load.c"
 #include "print_map.c"
+#include "print_tank.c"
 #include "game.c"
 
 

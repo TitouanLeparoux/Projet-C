@@ -1,12 +1,13 @@
 void print_map()
-{ 
-  FILE *map = fopen("../map/map2.txt", "r");
-  
+{   
+  // Rect for print txture block image
   SDL_Rect posBG; posBG.x = 0; posBG.y = 0;
  
-  if (IMGM.load == 0) { load_imgMap(); }
+  // Load only once in RAM texture image and text map
+  if (IMGM.load == 0) { load_imgMap(); } 
   if (mLoad == 0) { load_tabMap(); }
   
+  // Print map
   for (int j = 0; j < H+1; j++) { 
     for (int i = 0; i < L+1; i++) {
       SDL_BlitSurface(IMGM.durt, NULL, screen, &posBG);
@@ -18,7 +19,4 @@ void print_map()
     posBG.x = 0;
     posBG.y += SCL;
   }
-  // SDL_Flip(screen);
-
-  fclose(map);
 }
