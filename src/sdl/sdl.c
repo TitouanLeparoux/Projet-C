@@ -25,6 +25,12 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
+  TK_user = malloc(sizeof(tank)); // make user tank
+  TK_user->type = 'U'; // make tank an user and not an enemy
+  TK_user->posX = L / 2 * SCL; 
+  TK_user->posY = 10 * SCL;
+  TK_user->direction = 2;
+
   game(); // Condition stop SDL
   
   // END

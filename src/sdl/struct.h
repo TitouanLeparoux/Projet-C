@@ -22,7 +22,6 @@ typedef struct {
 	int	 life;
 }blockMap;
 
-
 typedef struct {
 	int 		load;
 	// TANK USER
