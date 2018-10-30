@@ -5,7 +5,8 @@ unsigned int H = 15;    // screen height in block of texture
 SDL_Surface *screen;
 
 // Struct image map
-img IMG;
+imgM IMGM;
+imgT IMGT;
 
 // tab of struct block
 char *tabMap_type;

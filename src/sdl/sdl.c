@@ -9,7 +9,9 @@
 // INCLUDE FILES
 #include "struct.h"
 #include "var_global.h"
-#include "load_map.c"
+
+#include "load.c"
+#include "print_map.c"
 #include "game.c"
 
 
