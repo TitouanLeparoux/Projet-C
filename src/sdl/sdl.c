@@ -11,6 +11,7 @@
 #include "var_global.h"
 
 #include "load.c"
+#include "control_key.c"
 #include "print_map.c"
 #include "print_tank.c"
 #include "game.c"
