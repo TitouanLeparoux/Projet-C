@@ -7,6 +7,7 @@ SDL_Surface *screen;
 // Struct image
 imgM IMGM;
 imgT IMGT;
+imgR IMGR;
 
 // tab of struct block
 char *tabMap_type;
@@ -15,3 +16,5 @@ int mLoad;
 
 // make tank user
 tank *TK_user;
+
+rocket *rocketN01;

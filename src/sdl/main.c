@@ -1,4 +1,4 @@
-// gcc sdl.c `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
+// gcc main.c `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,8 +12,7 @@
 
 #include "load.c"
 #include "control_key.c"
-#include "print_map.c"
-#include "print_tank.c"
+#include "print_obj.c"
 #include "game.c"
 
 
@@ -31,6 +30,12 @@ int main(int argc, char *argv[])
   TK_user->posX = L / 2 * SCL; 
   TK_user->posY = 10 * SCL;
   TK_user->direction = 2;
+
+  rocketN01 = malloc(sizeof(rocket));
+  rocketN01->posX = 0;
+  rocketN01->posY = 0;
+  rocketN01->direction = 6;
+  rocketN01->type = 'U';
 
   game(); // Condition stop SDL
   

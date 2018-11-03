@@ -3,6 +3,7 @@ int key_action(int continuer)
   continuer = control_key(continuer);
 
   print_map();
+  print_rocket(rocketN01);
   print_tank(TK_user);
   SDL_Flip(screen);
 

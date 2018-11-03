@@ -33,7 +33,19 @@ int control_key(int continuer)
           TK_user->posY -= SCL;
         }
         break;
-      // case SDLK_SPACE:  direction = 5; break; 
+      case SDLK_SPACE:
+        rocketN01->posX = TK_user->posX;
+        rocketN01->posY = TK_user->posY;
+        switch (TK_user->direction) {
+          case 2: rocketN01->posY = TK_user->posY+SCL; break;
+          case 4: rocketN01->posX = TK_user->posX-SCL; break;
+          case 6: rocketN01->posX = TK_user->posX+SCL; break;
+          case 8: rocketN01->posY = TK_user->posY-SCL; break;
+        }
+        rocketN01->direction = TK_user->direction;
+        rocketN01->type = TK_user->type;
+      break;
+      default: /* NONE */; break;
     }
   }
   return continuer;

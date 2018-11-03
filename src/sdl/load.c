@@ -50,6 +50,16 @@ void load_imgTank()
   IMGT.load = 1;
 }
 
+void load_imgRocket() 
+{
+  IMGR.R2 = IMG_Load("img/rocket/rocket_down.png");
+  IMGR.R4 = IMG_Load("img/rocket/rocket_left.png");
+  IMGR.R6 = IMG_Load("img/rocket/rocket_right.png");
+  IMGR.R8 = IMG_Load("img/rocket/rocket_up.png");
+
+  IMGR.load = 1;
+}
+
 /*********************************************************/
 // Free RAM
 
@@ -72,4 +82,12 @@ void deload_imgTank()
   SDL_FreeSurface(IMGT.TE4);
   SDL_FreeSurface(IMGT.TE6);
   SDL_FreeSurface(IMGT.TE8);
+}
+
+void deload_imgRocket()
+{
+  SDL_FreeSurface(IMGR.R2);
+  SDL_FreeSurface(IMGR.R4);
+  SDL_FreeSurface(IMGR.R6);
+  SDL_FreeSurface(IMGR.R8);
 }
