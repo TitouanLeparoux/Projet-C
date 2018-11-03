@@ -15,16 +15,16 @@ int control_key(int continuer)
           TK_user->posY += SCL;
         }
         break;
-      case SDLK_RIGHT:
-        TK_user->direction = 4; 
-        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX+SCL+1)/SCL)] != 'w' ){
-          TK_user->posX += SCL;
-        }
-        break;
       case SDLK_LEFT:
-        TK_user->direction = 6;
+        TK_user->direction = 4;
         if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX-1)/SCL)] != 'w' ){
           TK_user->posX -= SCL;
+        }
+        break;
+      case SDLK_RIGHT:
+        TK_user->direction = 6; 
+        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX+SCL+1)/SCL)] != 'w' ){
+          TK_user->posX += SCL;
         }
         break;
       case SDLK_UP:

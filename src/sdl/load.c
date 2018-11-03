@@ -38,13 +38,13 @@ void load_imgMap()
 void load_imgTank() 
 {
   IMGT.TU2 = IMG_Load("img/tank/tankB_down.png");
-  IMGT.TU4 = IMG_Load("img/tank/tankB_right.png");
-  IMGT.TU6 = IMG_Load("img/tank/tankB_left.png");
+  IMGT.TU4 = IMG_Load("img/tank/tankB_left.png");
+  IMGT.TU6 = IMG_Load("img/tank/tankB_right.png");
   IMGT.TU8 = IMG_Load("img/tank/tankB_up.png");
 
   IMGT.TE2 = IMG_Load("img/tank/tankG_down.png");
-  IMGT.TE4 = IMG_Load("img/tank/tankG_right.png");
-  IMGT.TE6 = IMG_Load("img/tank/tankG_left.png");
+  IMGT.TE4 = IMG_Load("img/tank/tankG_left.png");
+  IMGT.TE6 = IMG_Load("img/tank/tankG_right.png");
   IMGT.TE8 = IMG_Load("img/tank/tankG_up.png");
 
   IMGT.load = 1;
