@@ -6,14 +6,16 @@
 #include <SDL/SDL.h>
 #include <SDL_image.h>
 
-// INCLUDE FILES
+// INCLUDE VARRIABLE AND STRUCT
 #include "struct.h"
 #include "var_global.h"
-
+#include "prototype.h"
+// INCLUDE FUNCTION FILE
+#include "game.c"
 #include "load.c"
 #include "control_key.c"
 #include "print_obj.c"
-#include "game.c"
+#include "new_rocket.c"
 
 
 int main(int argc, char *argv[])
