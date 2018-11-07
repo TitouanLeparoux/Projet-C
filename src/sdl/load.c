@@ -1,73 +1,36 @@
 /*********************************************************/
-// Load texte map in RAM with a tab
+// Load texte map in RAM with a struct tab
+
+void malloc_tabMap()
+{
+  MAP = malloc(H * sizeof(double*));
+  for (int i = 0; i < L; i++) { 
+    MAP[i] = malloc(L * sizeof(double)); }
+}
 
 void load_tabMap()
 {
-  tabMap_type = malloc(H * L * sizeof(char));
-  tabMap_life = malloc(H * L * sizeof(char));
+  FILE *mapFile = fopen("../map/map2.txt", "r");
 
-  FILE *map = fopen("../map/map2.txt", "r");
-
-  for (int j = 0; j < H+1; j++) { 
-    for (int i = 0; i < L+1; i++) {
-      switch (getc(map)) {
-        case 'w':
-          tabMap_type [j*L+i] = 'w';
-          tabMap_life [j*L+i] = 1;
-          break; 
-        default: /* NONE */ ; break; 
-      }
-    }
-  }
-  fclose(map);
-  mLoad = 1;
-
-}
-
-// MODIF EL
-
-void load_tabMap2()
-{
- 
-  FILE *map2 = fopen("../map/map2.txt", "r");
-
-  int i, j;
+  int i = 0, j = 0;
   char car_act;
-  if (map2 != NULL)
-  {
-    i = 0;
-    j = 0;
-    do
-    {
-      car_act = fgetc(map2);
-      if (i > 19) 
-      {
-        if (car_act == '\n')  
-        {
-          i=0;
-          j++;
-        }
-      }
-      else
-      {
-        Map[j][i].type=car_act;
-        if (car_act == 'w')
-        {
-          Map[j][i].life=1;
-        }
-        else
-        {
-          Map[j][i].life=0;
+  if (mapFile != NULL) {
+    do {
+      car_act = fgetc(mapFile);
+      if (car_act == '\n') { i=0; j++; }
+      else {
+        MAP[j][i].type = car_act;
+        switch(car_act) {
+          case 'w': MAP[j][i].life = 1; break;
+          default : MAP[j][i].life = 0; break;
         }
         i++;
       }
-    
     } while (car_act != EOF);
-    fclose(map2);
+    fclose(mapFile);
   }
+  mLoad = 1;
 }
-
-// FIN MODIF EL
 
 /*********************************************************/
 // Load in RAM texture and tank image 

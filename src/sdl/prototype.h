@@ -11,12 +11,8 @@ void print_tank(tank *tankMove);
 void print_rocket(rocket *rocketMove);
 
 // LOAD.C
+void malloc_tabMap();
 void load_tabMap();
-
-// MODIF EL
-void load_tabMap2();
-// FIN MODIF EL
-
 void load_imgMap();
 void load_imgTank();
 void load_imgRocket();

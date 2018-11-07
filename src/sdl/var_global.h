@@ -10,14 +10,10 @@ imgT IMGT;
 imgR IMGR;
 
 // tab of struct block
-char *tabMap_type;
-char *tabMap_life;
+// char *tabMap_type;
+// char *tabMap_life;
+blockMap **MAP;
 int mLoad;
-
-// MODIF EL 
-int ind;
-blockMap **Map;
-// FIN MODIF EL
 
 // make tank user
 tank *TK_user;

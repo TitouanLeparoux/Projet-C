@@ -12,28 +12,28 @@ int control_key(int continuer)
       case SDLK_DOWN:
         TK_user->direction = 2;
 //        if(tabMap_type[ ((TK_user->posY+SCL+1)/SCL)*L + ((TK_user->posX)/SCL)] != 'w' ) {
-        if(Map[(TK_user->posY+SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
+        if(MAP[(TK_user->posY+SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
           TK_user->posY += SCL;
         }
         break;
       case SDLK_LEFT:
         TK_user->direction = 4;
 //        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX-1)/SCL)] != 'w' ){
-        if(Map[(TK_user->posY)/SCL][(TK_user->posX-SCL)/SCL].type != 'w' ) {
+        if(MAP[(TK_user->posY)/SCL][(TK_user->posX-SCL)/SCL].type != 'w' ) {
           TK_user->posX -= SCL;
         }
         break;
       case SDLK_RIGHT:
         TK_user->direction = 6; 
 //        if(tabMap_type[ ((TK_user->posY)/SCL)*L + ((TK_user->posX+SCL+1)/SCL)] != 'w' ){
-        if(Map[(TK_user->posY)/SCL][(TK_user->posX+SCL)/SCL].type != 'w' ) {
+        if(MAP[(TK_user->posY)/SCL][(TK_user->posX+SCL)/SCL].type != 'w' ) {
           TK_user->posX += SCL;
         }
         break;
       case SDLK_UP:
         TK_user->direction = 8;
 //        if(tabMap_type[ ((TK_user->posY-1)/SCL)*L + ((TK_user->posX)/SCL)] != 'w' ) {
-        if(Map[(TK_user->posY-SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
+        if(MAP[(TK_user->posY-SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
           TK_user->posY -= SCL;
         }
         break;
