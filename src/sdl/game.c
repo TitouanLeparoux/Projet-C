@@ -15,7 +15,8 @@ int game()
   mLoad = 0;
   int continuer = 1;
   
-  while (continuer == 1) {
+    while (continuer == 1) 
+  {
     continuer = key_action(continuer);
   }
   

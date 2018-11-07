@@ -27,6 +27,14 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
+  // MODIF EL
+  Map = malloc(H * sizeof(double*));
+  for (ind=0; ind<L;ind++)
+  {
+    Map[ind]=malloc(L * sizeof(double));
+  }
+  // FIN MODIF EL
+
   TK_user = malloc(sizeof(tank)); // make user tank
   TK_user->type = 'U'; // make tank an user and not an enemy
   TK_user->posX = L / 2 * SCL; 

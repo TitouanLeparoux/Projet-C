@@ -21,7 +21,53 @@ void load_tabMap()
   }
   fclose(map);
   mLoad = 1;
+
 }
+
+// MODIF EL
+
+void load_tabMap2()
+{
+ 
+  FILE *map2 = fopen("../map/map2.txt", "r");
+
+  int i, j;
+  char car_act;
+  if (map2 != NULL)
+  {
+    i = 0;
+    j = 0;
+    do
+    {
+      car_act = fgetc(map2);
+      if (i > 19) 
+      {
+        if (car_act == '\n')  
+        {
+          i=0;
+          j++;
+        }
+      }
+      else
+      {
+        Map[j][i].type=car_act;
+        if (car_act == 'w')
+        {
+          Map[j][i].life=1;
+        }
+        else
+        {
+          Map[j][i].life=0;
+        }
+        i++;
+      }
+    
+    } while (car_act != EOF);
+    fclose(map2);
+  }
+}
+
+// FIN MODIF EL
 
 /*********************************************************/
 // Load in RAM texture and tank image 
