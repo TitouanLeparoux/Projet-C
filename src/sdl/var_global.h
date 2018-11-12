@@ -24,4 +24,4 @@ rocket *rocketN02;
 
 rocket *ROCKETS;
 int NBR_RK;
-int NBR_RK_MAX = 100;
+int NBR_RK_MAX = 20;
