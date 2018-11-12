@@ -32,6 +32,14 @@ void load_tabMap()
   mLoad = 1;
 }
 
+/*
+rocket* malloc_rocket(rocket *newRocket)
+{
+  newRocket = malloc(H * sizeof(rocket));
+  return newRocket;
+}
+*/
+
 /*********************************************************/
 // Load in RAM texture and tank image 
 

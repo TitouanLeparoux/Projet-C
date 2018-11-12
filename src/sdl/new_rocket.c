@@ -1,5 +1,5 @@
 rocket* new_rocket(tank *tankShoot) {
-	rocket *newRocket = malloc(sizeof(rocket));
+	rocket *newRocket;
 
 	newRocket->posX = tankShoot->posX;
   newRocket->posY = tankShoot->posY;
@@ -11,6 +11,9 @@ rocket* new_rocket(tank *tankShoot) {
     }
   newRocket->direction = tankShoot->direction;
   newRocket->type = tankShoot->type;
+
+  printf("TankUser  x : %d, y : %d\n", tankShoot->posX, tankShoot->posY);
+  printf("newRocket x : %d, y : %d\n", newRocket->posX, newRocket->posY);
 
   return newRocket;
 }

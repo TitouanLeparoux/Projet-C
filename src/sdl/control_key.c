@@ -38,6 +38,23 @@ int control_key(int continuer)
         }
         break;
       case SDLK_SPACE:
+        /*
+        NBR_RK += 1;
+        ROCKETS = realloc(ROCKETS, NBR_RK * sizeof(rocket));
+        new_rocket(TK_user, &ROCKETS[NBR_RK]);
+        printf("\nNBR_RK : %d", NBR_RK);
+        */
+        
+
+        // rocketN01 = malloc(sizeof(rocket));
+        // &rocketN01 = new_rocket(TK_user);
+        // print_rocket(rocketN02);
+        
+        
+        //rocketN01 = malloc_rocket(rocketN01);
+        
+        // rocketN01 = malloc(sizeof(rocket));
+        
         rocketN01->posX = TK_user->posX;
         rocketN01->posY = TK_user->posY;
         switch (TK_user->direction) {
@@ -48,7 +65,9 @@ int control_key(int continuer)
         }
         rocketN01->direction = TK_user->direction;
         rocketN01->type = TK_user->type;
-      break;
+        // print_rocket(rocketN01);
+
+        break;
       default: /* NONE */; break;
     }
   }

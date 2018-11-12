@@ -5,7 +5,7 @@ void print_map()
  
   // Load only once in RAM texture image and text map
   if (IMGM.load == 0) { load_imgMap(); }
-  if (mLoad == 0) { /*load_tabMap();*/ load_tabMap(); }
+  if (mLoad == 0) { load_tabMap(); }
   
   // Print map
   for (int j = 0; j < H; j++) { 

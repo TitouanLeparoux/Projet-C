@@ -1,3 +1,4 @@
+// cd Documents/ESIEA/projet/Projet-C/src/sdl
 // gcc main.c `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 
 #include <stdlib.h>
@@ -27,7 +28,12 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
-  if (mLoad == 0) { malloc_tabMap(); }
+  malloc_tabMap(); 
+
+  /*
+  ROCKETS = malloc(1 * sizeof(rocket));
+  NBR_RK = 0;
+  */
 
   TK_user = malloc(sizeof(tank)); // make user tank
   TK_user->type = 'U'; // make tank an user and not an enemy
@@ -35,12 +41,15 @@ int main(int argc, char *argv[])
   TK_user->posY = 10 * SCL;
   TK_user->direction = 2;
 
+  // rocketN01->type = 'A';
+  /*
   rocketN01 = malloc(sizeof(rocket));
   rocketN01->posX = 0;
   rocketN01->posY = 0;
   rocketN01->direction = 6;
   rocketN01->type = 'U';
-
+  */
+  
   game(); // Condition stop SDL
 
   // END
