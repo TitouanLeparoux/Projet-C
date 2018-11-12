@@ -45,16 +45,29 @@ int control_key(int continuer)
         printf("\nNBR_RK : %d", NBR_RK);
         */
         
-
         // rocketN01 = malloc(sizeof(rocket));
         // &rocketN01 = new_rocket(TK_user);
         // print_rocket(rocketN02);
         
-        
-        //rocketN01 = malloc_rocket(rocketN01);
-        
+        // rocketN01 = malloc_rocket(rocketN01);
         // rocketN01 = malloc(sizeof(rocket));
         
+        if (NBR_RK < NBR_RK_MAX) {
+          ROCKETS[NBR_RK].posX = TK_user->posX;
+          ROCKETS[NBR_RK].posY = TK_user->posY;
+          switch (TK_user->direction) {
+            case 2: ROCKETS[NBR_RK].posY = TK_user->posY+SCL; break;
+            case 4: ROCKETS[NBR_RK].posX = TK_user->posX-SCL; break;
+            case 6: ROCKETS[NBR_RK].posX = TK_user->posX+SCL; break;
+            case 8: ROCKETS[NBR_RK].posY = TK_user->posY-SCL; break;
+          }
+          ROCKETS[NBR_RK].direction = TK_user->direction;
+          ROCKETS[NBR_RK].type = TK_user->type;
+          ROCKETS[NBR_RK].destruction = 0;
+          NBR_RK += 1;
+        }
+
+        /*
         rocketN01->posX = TK_user->posX;
         rocketN01->posY = TK_user->posY;
         switch (TK_user->direction) {
@@ -65,6 +78,7 @@ int control_key(int continuer)
         }
         rocketN01->direction = TK_user->direction;
         rocketN01->type = TK_user->type;
+        */
         // print_rocket(rocketN01);
 
         break;

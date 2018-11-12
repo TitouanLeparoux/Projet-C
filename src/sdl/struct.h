@@ -15,6 +15,7 @@ typedef struct {
 	int   posX;
 	int   posY;
 	char  type; // (U)ser - (E)nemy
+	int   destruction;
 }rocket;
 
 typedef struct {

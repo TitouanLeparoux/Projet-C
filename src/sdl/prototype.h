@@ -8,7 +8,7 @@ int control_key(int continuer);
 // PRINT_OBJ.C
 void print_map();
 void print_tank(tank *tankMove);
-void print_rocket(rocket *rocketMove);
+void print_rocket(rocket rocketMove);
 
 // LOAD.C
 void malloc_tabMap();

@@ -32,6 +32,12 @@ void load_tabMap()
   mLoad = 1;
 }
 
+void malloc_listRocket()
+{
+  ROCKETS = malloc(NBR_RK_MAX * sizeof(double));
+}
+
+
 /*
 rocket* malloc_rocket(rocket *newRocket)
 {

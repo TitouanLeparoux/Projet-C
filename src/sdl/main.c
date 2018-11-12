@@ -30,10 +30,8 @@ int main(int argc, char *argv[])
 
   malloc_tabMap(); 
 
-  /*
   ROCKETS = malloc(1 * sizeof(rocket));
   NBR_RK = 0;
-  */
 
   TK_user = malloc(sizeof(tank)); // make user tank
   TK_user->type = 'U'; // make tank an user and not an enemy

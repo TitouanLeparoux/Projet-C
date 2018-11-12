@@ -21,5 +21,7 @@ tank *TK_user;
 // make tank rocket
 rocket *rocketN01;
 rocket *rocketN02;
+
 rocket *ROCKETS;
 int NBR_RK;
+int NBR_RK_MAX = 100;

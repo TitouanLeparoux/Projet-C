@@ -47,15 +47,15 @@ void print_tank(tank *tankMove)
   }
 }
 
-void print_rocket(rocket *rocketMove)
+void print_rocket(rocket rocketMove)
 {
   SDL_Rect posRK;
-  posRK.x = rocketMove->posX;
-  posRK.y = rocketMove->posY;
+  posRK.x = rocketMove.posX;
+  posRK.y = rocketMove.posY;
   
   if (IMGR.load == 0) { load_imgRocket(); }
 
-  switch (rocketMove->direction) {
+  switch (rocketMove.direction) {
     case 2: SDL_BlitSurface(IMGR.R2, NULL, screen, &posRK); break;
     case 4: SDL_BlitSurface(IMGR.R4, NULL, screen, &posRK); break;
     case 6: SDL_BlitSurface(IMGR.R6, NULL, screen, &posRK); break;
