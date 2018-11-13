@@ -1,6 +1,7 @@
 int load_game()
 {
   mLoad = 0;
+  tLoad = 0;
   rLoad = 0;
 
   int continuer = 1; 

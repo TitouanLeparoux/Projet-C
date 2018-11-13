@@ -49,7 +49,7 @@ void print_tank(tank *tankMove)
 
 void print_rocketsList()
 {
-  if (rLoad = 0) { load_listRocket(); }
+  if (rLoad == 0) { load_listRocket(); }
 
   for (int i = 0; i < NBR_RK_MAX; i++) {
     if (ROCKETS[i].alive == 1) {

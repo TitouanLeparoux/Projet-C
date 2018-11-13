@@ -2,6 +2,7 @@ unsigned int SCL = 32;  // texture size in pixel
 unsigned int L = 20;    // screen width in block of texture
 unsigned int H = 15;    // screen height in block of texture
 
+unsigned int NBR_TK_MAX = 1 + 0; // number of tanks (user + enemy)
 unsigned int NBR_RK_MAX = 20; // maximum number of simultaneous rocket
 
 SDL_Surface *screen;
@@ -17,6 +18,8 @@ blockMap **MAP;
 
 // make tank user
 tank *TK_user;
+int tLoad;
+tank *TANKS;
 
 // make tank rocket
 int rLoad;

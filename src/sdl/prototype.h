@@ -15,6 +15,7 @@ void print_rocket(rocket rocketMove);
 // LOAD.C
 void malloc_tabMap();
 void load_tabMap();
+void malloc_listTank();
 void malloc_listRocket();
 void load_listRocket();
 

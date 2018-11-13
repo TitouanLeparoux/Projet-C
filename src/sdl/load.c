@@ -32,6 +32,11 @@ void load_tabMap()
   mLoad = 1;
 }
 
+void malloc_listTank()
+{
+  TANKS = malloc(NBR_TK_MAX * sizeof(double));
+}
+
 void malloc_listRocket()
 {
   ROCKETS = malloc(NBR_RK_MAX * sizeof(double));
