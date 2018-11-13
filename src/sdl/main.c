@@ -28,27 +28,17 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
-  malloc_tabMap(); 
-
-  ROCKETS = malloc(1 * sizeof(rocket));
-  NBR_RK = 0;
+  malloc_tabMap();
+  
+  malloc_listRocket();
 
   TK_user = malloc(sizeof(tank)); // make user tank
   TK_user->type = 'U'; // make tank an user and not an enemy
   TK_user->posX = L / 2 * SCL; 
   TK_user->posY = 10 * SCL;
   TK_user->direction = 2;
-
-  // rocketN01->type = 'A';
-  /*
-  rocketN01 = malloc(sizeof(rocket));
-  rocketN01->posX = 0;
-  rocketN01->posY = 0;
-  rocketN01->direction = 6;
-  rocketN01->type = 'U';
-  */
   
-  game(); // Condition stop SDL
+  load_game(); // Condition stop SDL
 
   // END
   SDL_Quit();

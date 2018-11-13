@@ -47,6 +47,35 @@ void print_tank(tank *tankMove)
   }
 }
 
+void print_rocketsList()
+{
+  if (rLoad = 0) { load_listRocket(); }
+
+  for (int i = 0; i < NBR_RK_MAX; i++) {
+    if (ROCKETS[i].alive == 1) {
+      if(MAP[ROCKETS[i].posY/SCL][ROCKETS[i].posX/SCL].type == 'w') {
+         MAP[ROCKETS[i].posY/SCL][ROCKETS[i].posX/SCL].type = ' ';
+        ROCKETS[i].alive = 0;
+      }
+      else {
+        switch (ROCKETS[i].direction) {
+          case 2: ROCKETS[i].posY += SCL; break;
+          case 4: ROCKETS[i].posX -= SCL; break;
+          case 6: ROCKETS[i].posX += SCL; break;
+          case 8: ROCKETS[i].posY -= SCL; break;
+        }
+        if (ROCKETS[i].posY > SCL * H || ROCKETS[i].posY < 0 ||
+            ROCKETS[i].posX > SCL * L || ROCKETS[i].posX < 0) {
+          ROCKETS[i].alive = 0;
+        }
+        else {
+          print_rocket(ROCKETS[i]);
+        }
+      }
+    }
+  }
+}
+
 void print_rocket(rocket rocketMove)
 {
   SDL_Rect posRK;

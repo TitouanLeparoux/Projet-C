@@ -37,14 +37,12 @@ void malloc_listRocket()
   ROCKETS = malloc(NBR_RK_MAX * sizeof(double));
 }
 
-
-/*
-rocket* malloc_rocket(rocket *newRocket)
+void load_listRocket()
 {
-  newRocket = malloc(H * sizeof(rocket));
-  return newRocket;
+  for (int i = 0; i < NBR_RK_MAX; i++) {
+    ROCKETS[i].alive = 0; }
+  rLoad = 1;
 }
-*/
 
 /*********************************************************/
 // Load in RAM texture and tank image 
