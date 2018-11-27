@@ -28,6 +28,3 @@ void load_imgRocket();
 void deload_imgMap();
 void deload_imgTank();
 void deload_imgRocket();
-
-// NEW_ROCKET.C
-rocket* new_rocket(tank *tankShoot);

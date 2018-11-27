@@ -41,8 +41,6 @@ void print_tanksList()
           case 8: if (MAP[(TK_user.posY-SCL)/SCL][TK_user.posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
         }
         
-        if (i == 0) { printf("prob : %d", prob_actuel_dir); } // PRINT
-        
         int size_possible = prob_actuel_dir;
         if (/*TANKS[i].direction = 2 et */ MAP[(TANKS[i].posY+SCL)/SCL][TANKS[i].posX/SCL].type != 'w')    { size_possible += 1; }
         if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX-SCL)/SCL].type != 'w')  { size_possible += 1; }
@@ -59,21 +57,9 @@ void print_tanksList()
           tab_possible[posTabPoss] = TANKS[i].direction; 
           posTabPoss += 1;
         }
-
-        if (i == 0) {
-          printf(", size : %d", size_possible);
-          printf(", tab : ");
-          for (int j = 0; j < size_possible; j++) {
-            printf("%d,", tab_possible[j]);
-          }
-        }
         
         int var_random = rand()%size_possible;
         int dirActualTank = tab_possible[var_random];
-
-        if (i == 0) {
-          printf("\nrand : %d, tabCase : %d\n\n", var_random, dirActualTank);
-        }
         
         int save_dir = 0;
         switch (dirActualTank) {
@@ -160,7 +146,7 @@ void print_rocketsList()
       }
       else {
         for (unsigned int j = 0; j < NBR_TK_MAX; j++) {
-          if (ROCKETS[i].posX == TANKS[j].posX && ROCKETS[i].posY == TANKS[j].posY && ROCKETS[i].type == 'U') {
+          if (ROCKETS[i].posX == TANKS[j].posX && ROCKETS[i].posY == TANKS[j].posY && ROCKETS[i].type == 'U' && TANKS[j].alive == 1) {
             TANKS[j].alive = 0;
             ROCKETS[i].alive = 0;    
           }
@@ -189,10 +175,6 @@ void print_rocketsList()
     }
   }
 }
-
-/*
-      
-*/
 
 void print_rocket(rocket rocketMove)
 {

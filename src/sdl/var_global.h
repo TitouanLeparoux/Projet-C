@@ -20,10 +20,11 @@ blockMap **MAP;
 tank TK_user;
 int tLoad;
 tank *TANKS;
+
 clock_t TIME_MEM[5];
 int SPEED_TANK = 150050;
 int PROBA_DIR_TANK = 2;
 
 // make tank rocket
 int rLoad;
-rocket *ROCKETS;
+rocket *ROCKETS; 

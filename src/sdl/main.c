@@ -17,7 +17,6 @@
 #include "load.c"
 #include "control_key.c"
 #include "print_obj.c"
-#include "new_rocket.c"
 
 
 int main(int argc, char *argv[])
