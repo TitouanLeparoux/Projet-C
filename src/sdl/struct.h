@@ -2,13 +2,15 @@ typedef struct {
 	int   direction;
 	int   posX;
 	int   posY;
+	char  type; // (U)ser - (E)nemy
+	int   alive;
+}tank;
+	/* 
 	int   life;
 	int   life_origin;
 	int   touches;
-	char  type; // (U)ser - (E)nemy
 	int   etat;
-	int   destruction;
-}tank;
+	*/
 
 typedef struct {
 	int   direction;

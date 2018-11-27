@@ -8,8 +8,8 @@ void print_map()
   if (mLoad == 0) { load_tabMap(); }
   
   // Print map
-  for (int j = 0; j < H; j++) { 
-    for (int i = 0; i < L; i++) {
+  for (unsigned int j = 0; j < H; j++) { 
+    for (unsigned int i = 0; i < L; i++) {
       SDL_BlitSurface(IMGM.durt, NULL, screen, &posBG);
       switch (MAP[j][i].type) {
         case 'w': SDL_BlitSurface(IMGM.w1, NULL, screen, &posBG); break;
@@ -21,24 +21,125 @@ void print_map()
   }
 }
 
-void print_tank(tank *tankMove)
+void print_tanksList()
+{
+  if (tLoad == 0) { load_listTank(); }
+
+  print_tank(TK_user);
+
+  for (unsigned int i = 0; i < NBR_TK_MAX; i++) {
+    if (TANKS[i].alive == 1) {
+      print_tank(TANKS[i]);
+
+      if (clock() > TIME_MEM[i] + SPEED_TANK) {
+        
+        int prob_actuel_dir = 0;
+        switch(TANKS[i].direction) {
+          case 2: if (MAP[(TK_user.posY+SCL)/SCL][TK_user.posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 4: if (MAP[(TK_user.posY)/SCL][(TK_user.posX-SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 6: if (MAP[(TK_user.posY)/SCL][(TK_user.posX+SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 8: if (MAP[(TK_user.posY-SCL)/SCL][TK_user.posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+        }
+        
+        if (i == 0) { printf("prob : %d", prob_actuel_dir); } // PRINT
+        
+        int size_possible = prob_actuel_dir;
+        if (/*TANKS[i].direction = 2 et */ MAP[(TANKS[i].posY+SCL)/SCL][TANKS[i].posX/SCL].type != 'w')    { size_possible += 1; }
+        if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX-SCL)/SCL].type != 'w')  { size_possible += 1; }
+        if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX+SCL)/SCL].type != 'w')  { size_possible += 1; }
+        if (MAP[(TANKS[i].posY-SCL)/SCL][TANKS[i].posX/SCL].type != 'w')    { size_possible += 1; }
+        
+        int tab_possible[size_possible];
+        int posTabPoss = 0;
+        if (MAP[(TANKS[i].posY+SCL)/SCL][TANKS[i].posX/SCL].type != 'w')    { tab_possible[posTabPoss] = 2; posTabPoss += 1; }
+        if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX-SCL)/SCL].type != 'w')  { tab_possible[posTabPoss] = 4; posTabPoss += 1; }
+        if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX+SCL)/SCL].type != 'w')  { tab_possible[posTabPoss] = 6; posTabPoss += 1; }
+        if (MAP[(TANKS[i].posY-SCL)/SCL][TANKS[i].posX/SCL].type != 'w')    { tab_possible[posTabPoss] = 8; posTabPoss += 1; }
+        for (int j = 0; j < prob_actuel_dir; j++) {
+          tab_possible[posTabPoss] = TANKS[i].direction; 
+          posTabPoss += 1;
+        }
+
+        if (i == 0) {
+          printf(", size : %d", size_possible);
+          printf(", tab : ");
+          for (int j = 0; j < size_possible; j++) {
+            printf("%d,", tab_possible[j]);
+          }
+        }
+        
+        int var_random = rand()%size_possible;
+        int dirActualTank = tab_possible[var_random];
+
+        if (i == 0) {
+          printf("\nrand : %d, tabCase : %d\n\n", var_random, dirActualTank);
+        }
+        
+        int save_dir = 0;
+        switch (dirActualTank) {
+          case 2:
+            TANKS[i].direction = 2;
+            if(MAP[(TANKS[i].posY+SCL)/SCL][TANKS[i].posX/SCL].type != 'w' ) {
+              TANKS[i].posY += SCL; }
+            break;
+          
+          case 4:
+            TANKS[i].direction = 4;
+            if(MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX-SCL)/SCL].type != 'w' ) {
+              TANKS[i].posX -= SCL; }
+            break;
+          
+          case 6:
+            TANKS[i].direction = 6; 
+            if(MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX+SCL)/SCL].type != 'w' ) {
+              TANKS[i].posX += SCL; }
+            break;
+          
+          case 8:
+            TANKS[i].direction = 8;
+            if(MAP[(TANKS[i].posY-SCL)/SCL][TANKS[i].posX/SCL].type != 'w' ) {
+              TANKS[i].posY -= SCL; }
+            break;
+        }
+
+        int tmpPos;
+        for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
+          if (ROCKETS[i].alive == 0) {
+            tmpPos = i;
+          }
+        }
+        ROCKETS[tmpPos].posX = TANKS[i].posX;
+        ROCKETS[tmpPos].posY = TANKS[i].posY;
+        ROCKETS[tmpPos].direction = TANKS[i].direction;
+        ROCKETS[tmpPos].type = TANKS[i].type;
+        ROCKETS[tmpPos].alive = 1;
+
+        TIME_MEM[i] = clock();
+      }
+    }
+  }
+}
+
+void print_tank(tank tankMove)
 {
   SDL_Rect posTK;
-  posTK.x = tankMove->posX;
-  posTK.y = tankMove->posY;
+  posTK.x = tankMove.posX;
+  posTK.y = tankMove.posY;
   
   if (IMGT.load == 0) { load_imgTank(); }
 
-  if(tankMove->type =='U') {
-    switch (tankMove->direction) {
-      case 2: SDL_BlitSurface(IMGT.TU2, NULL, screen, &posTK); break;
-      case 4: SDL_BlitSurface(IMGT.TU4, NULL, screen, &posTK); break;
-      case 6: SDL_BlitSurface(IMGT.TU6, NULL, screen, &posTK); break;
-      case 8: SDL_BlitSurface(IMGT.TU8, NULL, screen, &posTK); break;
+  if(tankMove.type =='U') {
+    if (TK_user.alive == 1) {
+      switch (tankMove.direction) {
+        case 2: SDL_BlitSurface(IMGT.TU2, NULL, screen, &posTK); break;
+        case 4: SDL_BlitSurface(IMGT.TU4, NULL, screen, &posTK); break;
+        case 6: SDL_BlitSurface(IMGT.TU6, NULL, screen, &posTK); break;
+        case 8: SDL_BlitSurface(IMGT.TU8, NULL, screen, &posTK); break;
+      }
     }
   }
   else {
-    switch (tankMove->direction) {
+    switch (tankMove.direction) {
       case 2: SDL_BlitSurface(IMGT.TE2, NULL, screen, &posTK); break;
       case 4: SDL_BlitSurface(IMGT.TE4, NULL, screen, &posTK); break;
       case 6: SDL_BlitSurface(IMGT.TE6, NULL, screen, &posTK); break;
@@ -51,30 +152,47 @@ void print_rocketsList()
 {
   if (rLoad == 0) { load_listRocket(); }
 
-  for (int i = 0; i < NBR_RK_MAX; i++) {
+  for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
     if (ROCKETS[i].alive == 1) {
-      if(MAP[ROCKETS[i].posY/SCL][ROCKETS[i].posX/SCL].type == 'w') {
+      if (MAP[ROCKETS[i].posY/SCL][ROCKETS[i].posX/SCL].type == 'w') {
          MAP[ROCKETS[i].posY/SCL][ROCKETS[i].posX/SCL].type = ' ';
         ROCKETS[i].alive = 0;
       }
       else {
-        switch (ROCKETS[i].direction) {
-          case 2: ROCKETS[i].posY += SCL; break;
-          case 4: ROCKETS[i].posX -= SCL; break;
-          case 6: ROCKETS[i].posX += SCL; break;
-          case 8: ROCKETS[i].posY -= SCL; break;
+        for (unsigned int j = 0; j < NBR_TK_MAX; j++) {
+          if (ROCKETS[i].posX == TANKS[j].posX && ROCKETS[i].posY == TANKS[j].posY && ROCKETS[i].type == 'U') {
+            TANKS[j].alive = 0;
+            ROCKETS[i].alive = 0;    
+          }
+          else if (ROCKETS[i].posX == TK_user.posX && ROCKETS[i].posY == TK_user.posY && ROCKETS[i].type == 'E') {
+            TK_user.alive = 0;
+            ROCKETS[i].alive = 0;
+          }
         }
-        if (ROCKETS[i].posY > SCL * H || ROCKETS[i].posY < 0 ||
-            ROCKETS[i].posX > SCL * L || ROCKETS[i].posX < 0) {
-          ROCKETS[i].alive = 0;
-        }
-        else {
-          print_rocket(ROCKETS[i]);
-        }
+      } 
+    }
+
+    if (ROCKETS[i].alive == 1) {
+      switch (ROCKETS[i].direction) {
+        case 2: ROCKETS[i].posY += SCL; break;
+        case 4: ROCKETS[i].posX -= SCL; break;
+        case 6: ROCKETS[i].posX += SCL; break;
+        case 8: ROCKETS[i].posY -= SCL; break;
+      }
+      if (ROCKETS[i].posY > SCL * (H-1)-1 || ROCKETS[i].posY < SCL * (0+1) ||
+          ROCKETS[i].posX > SCL * (L-1)-1 || ROCKETS[i].posX < SCL * (0+1)) {
+        ROCKETS[i].alive = 0;
+      }
+      else {
+        print_rocket(ROCKETS[i]);
       }
     }
   }
 }
+
+/*
+      
+*/
 
 void print_rocket(rocket rocketMove)
 {
