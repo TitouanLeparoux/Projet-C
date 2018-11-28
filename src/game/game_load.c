@@ -3,9 +3,9 @@
 
 void malloc_tabMap()
 {
-  MAP = malloc(H * sizeof(double*));
+  MAP = malloc(H * sizeof(blockMap));
   for (unsigned int i = 0; i < L; i++) { 
-    MAP[i] = malloc(L * sizeof(double)); }
+    MAP[i] = malloc(L * sizeof(blockMap)); }
 }
 
 void load_tabMap()

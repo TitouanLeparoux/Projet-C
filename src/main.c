@@ -15,13 +15,11 @@
 #include "var_global.h"
 #include "prototype.h"
 
-// INCLUDE MENU FILE
-#include "menu/menu.c"
 // INCLUDE GAME FILE
 #include "game/game.c"
-#include "game/load.c"
-#include "game/control_key.c"
-#include "game/print_obj.c"
+#include "game/game_load.c"
+#include "game/game_controlKey.c"
+#include "game/game_printObject.c"
 
 
 int main(int argc, char *argv[])
@@ -34,8 +32,7 @@ int main(int argc, char *argv[])
   /*******************************************************/
 
 
-  //load_menu();
-  load_game(); // Condition stop SDL
+  load_game();
 
 
   /*********/

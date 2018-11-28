@@ -6,12 +6,6 @@ typedef struct _tank {
 	int   alive;
 	struct _tank *next_tank;
 }tank;
-	/* 
-	int   life;
-	int   life_origin;
-	int   touches;
-	int   etat;
-	*/
 
 typedef struct _rocket{
 	int   direction;

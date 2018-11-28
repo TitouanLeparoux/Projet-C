@@ -2,10 +2,10 @@
 int load_game();
 int game(int continuer);
 
-// CONTROLE_KEY.C
+// GAME CONTROLE_KEY.C
 int control_key(int continuer);
 
-// PRINT_OBJ.C
+// GAME PRINT_OBJ.C
 void print_map();
 void print_tanksList();
 void print_tank(tank *tankMove);
@@ -13,7 +13,7 @@ void print_rocketsList();
 void print_rocket(rocket *rocketMove);
 
 
-// LOAD.C
+// GAME LOAD.C
 void malloc_tabMap();
 void load_tabMap();
 

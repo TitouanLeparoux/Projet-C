@@ -3,7 +3,7 @@ int load_menu()
   // GAME LOOP
   int continuer = 1; 
   while (continuer == 1) {
-    continuer = game(continuer);
+    continuer = menu(continuer);
   }
   
   return 0;
@@ -13,9 +13,9 @@ int load_menu()
 // GAME LOOP
 int menu(int continuer)
 {
-  continuer = control_key(continuer);
+  continuer = control_key_menu(continuer);
 
-  print_map();
+  // print_menu();
   
   SDL_Flip(screen);
   return continuer;
