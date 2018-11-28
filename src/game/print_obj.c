@@ -35,10 +35,10 @@ void print_tanksList()
         
         int prob_actuel_dir = 0;
         switch(TANKS[i].direction) {
-          case 2: if (MAP[(TK_user.posY+SCL)/SCL][TK_user.posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 4: if (MAP[(TK_user.posY)/SCL][(TK_user.posX-SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 6: if (MAP[(TK_user.posY)/SCL][(TK_user.posX+SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 8: if (MAP[(TK_user.posY-SCL)/SCL][TK_user.posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 2: if (MAP[(TANKS[i].posY+SCL)/SCL][TANKS[i].posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 4: if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX-SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 6: if (MAP[(TANKS[i].posY)/SCL][(TANKS[i].posX+SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 8: if (MAP[(TANKS[i].posY-SCL)/SCL][TANKS[i].posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
         }
         
         int size_possible = prob_actuel_dir;
