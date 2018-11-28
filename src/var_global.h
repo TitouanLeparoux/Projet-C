@@ -22,7 +22,7 @@ int tLoad;
 tank *TANKS;
 
 clock_t TIME_MEM[5];
-int SPEED_TANK = 150050;
+int SPEED_TANK = 150000;
 int PROBA_DIR_TANK = 2;
 
 // make tank rocket

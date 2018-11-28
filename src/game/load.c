@@ -10,7 +10,7 @@ void malloc_tabMap()
 
 void load_tabMap()
 {
-  FILE *mapFile = fopen("../map/map2.txt", "r");
+  FILE *mapFile = fopen("map/map2.txt", "r");
 
   int i = 0, j = 0;
   char car_act;

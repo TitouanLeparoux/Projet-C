@@ -1,4 +1,4 @@
-// cd Documents/ESIEA/projet/Projet-C/src/sdl
+// cd Documents/ESIEA/projet/Projet-C/src
 // gcc main.c `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 // gcc main.c -std=c99 -pedantic -Wall -Wextra `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 
@@ -12,11 +12,14 @@
 #include "struct.h"
 #include "var_global.h"
 #include "prototype.h"
-// INCLUDE FUNCTION FILE
-#include "game.c"
-#include "load.c"
-#include "control_key.c"
-#include "print_obj.c"
+
+// INCLUDE MENU FILE
+#include "menu/menu.c"
+// INCLUDE GAME FILE
+#include "game/game.c"
+#include "game/load.c"
+#include "game/control_key.c"
+#include "game/print_obj.c"
 
 
 int main(int argc, char *argv[])
@@ -29,6 +32,7 @@ int main(int argc, char *argv[])
   /*******************************************************/
 
 
+  //load_menu();
   load_game(); // Condition stop SDL
 
 
