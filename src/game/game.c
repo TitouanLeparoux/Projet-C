@@ -3,8 +3,6 @@ int load_game()
   mLoad = 0; tLoad = 0; rLoad = 0;
 
   malloc_tabMap();
-  // malloc_listTank();
-  // malloc_listRocket();
 
   TK_user = malloc(sizeof(tank));
   TK_user->type = 'U'; // tank USER

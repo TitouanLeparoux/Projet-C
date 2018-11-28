@@ -2,6 +2,8 @@
 // gcc main.c `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 // gcc main.c -std=c99 -pedantic -Wall -Wextra `sdl-config --cflags --libs` -lSDLmain -lSDL -lSDL_image
 
+// GDB option de compilation -g, gdb a.out, run, where
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>

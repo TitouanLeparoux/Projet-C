@@ -17,13 +17,10 @@ void print_rocket(rocket *rocketMove);
 void malloc_tabMap();
 void load_tabMap();
 
-// void malloc_listTank();
 void load_listTank();
 void create_tank(int posX, int posY, char type, int direction);
 void ajouter_liste_tank(tank *t);
 
-// void malloc_listRocket();
-void load_listRocket();
 void create_roquet(int posX, int posY, char type, int direction);
 void ajouter_liste_rocket(rocket *r);
 void supprimer_rocket(rocket *r);

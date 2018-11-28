@@ -34,47 +34,11 @@ void load_tabMap()
 
 /*********************************************************/
 
-/*
-void malloc_listTank() {
-  TANKS = malloc(NBR_TK_MAX * sizeof(double)); }
-*/
-
 void load_listTank() {
-/*
-  for (unsigned int i = 0; i < (NBR_TK_MAX) ; i++) {
-    TANKS[i].alive = 0; 
-  }
-*/
-  
   create_tank(SCL * 1,        SCL * 1,    'E',    2);
   create_tank(SCL * (L-2),    SCL * 1,    'E',    2);
   create_tank(SCL * 1    ,    SCL * 8,    'E',    2);
-
-/*
-  TANKS[0].type = 'E'; // tank ENEMY
-  TANKS[0].posX = SCL * 1; 
-  TANKS[0].posY = SCL * 1;
-  TANKS[0].direction = 2;
-  TANKS[0].alive = 1;
-
-  TANKS[1].type = 'E'; // tank ENEMY
-  TANKS[1].posX = SCL * (L-2); 
-  TANKS[1].posY = SCL * 1;
-  TANKS[1].direction = 2;
-  TANKS[1].alive = 1;
-
-  TANKS[2].type = 'E'; // tank ENEMY
-  TANKS[2].posX = SCL * 1; 
-  TANKS[2].posY = SCL * 8;
-  TANKS[2].direction = 2;
-  TANKS[2].alive = 1;
-
-  TANKS[3].type = 'E'; // tank ENEMY
-  TANKS[3].posX = SCL * (L-2); 
-  TANKS[3].posY = SCL * 8;
-  TANKS[3].direction = 2;
-  TANKS[3].alive = 1;
-*/
+  create_tank(SCL * (L-2),    SCL * 8,    'E',    2);
 
   tLoad = 1;
 }
@@ -99,18 +63,6 @@ void ajouter_liste_tank(tank *t) {
 }
 
 /*********************************************************/
-
-/*
-void malloc_listRocket() {
-  ROCKETS = malloc(NBR_RK_MAX * sizeof(double)); }
-*/
-
-void load_listRocket()
-{
-  for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
-    ROCKETS[i].alive = 0; }
-  rLoad = 1;
-}
 
 void create_roquet(int posX, int posY, char type, int direction) {
   // Initialise les tanks

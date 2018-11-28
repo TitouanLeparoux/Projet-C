@@ -27,8 +27,7 @@ void print_tanksList()
 
   print_tank(TK_user);
 
-  tank *crt_tk = FIRST_TK; int i = 0; // crt_tk = current tank //
-  // for (unsigned int i = 0; i < NBR_TK_MAX; i++) {
+  tank *crt_tk = FIRST_TK; int i = 0; // crt_tk = current tank
   while (crt_tk != NULL) {
 
     if (crt_tk->alive == 1) {
@@ -91,24 +90,8 @@ void print_tanksList()
               crt_tk->posY -= SCL; }
             break;
         }
-
-        /*
-        int tmpPos;
-        for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
-          if (crt_tk->alive == 0) {
-            tmpPos = i;
-          }
-        }
-        ROCKETS[tmpPos].posX = crt_tk->posX;
-        ROCKETS[tmpPos].posY = crt_tk->posY;
-        ROCKETS[tmpPos].direction = crt_tk->direction;
-        ROCKETS[tmpPos].type = crt_tk->type;
-        ROCKETS[tmpPos].alive = 1;
-        */
         TIME_MEM[i] = clock();
-        
         create_roquet(crt_tk->posX, crt_tk->posY, crt_tk->type, crt_tk->direction);
-
       }
     }
   crt_tk = crt_tk->next_tank; i++;

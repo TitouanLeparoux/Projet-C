@@ -37,20 +37,6 @@ int control_key(int continuer)
           break;
         
         case SDLK_SPACE: ;
-        /*
-          int tmpPos;
-          for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
-            if (ROCKETS[i].alive == 0) {
-              tmpPos = i;
-              break;
-            }
-          }
-          ROCKETS[tmpPos].posX = TK_user->posX;
-          ROCKETS[tmpPos].posY = TK_user->posY;
-          ROCKETS[tmpPos].direction = TK_user->direction;
-          ROCKETS[tmpPos].type = TK_user->type;
-          ROCKETS[tmpPos].alive = 1;
-        */
           create_roquet(TK_user->posX, TK_user->posY, TK_user->type, TK_user->direction);
           break;
 
