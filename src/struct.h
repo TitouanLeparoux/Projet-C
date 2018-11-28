@@ -1,9 +1,10 @@
-typedef struct {
+typedef struct _tank {
 	int   direction;
 	int   posX;
 	int   posY;
 	char  type; // (U)ser - (E)nemy
 	int   alive;
+	struct _tank *next_tank;
 }tank;
 	/* 
 	int   life;
@@ -12,12 +13,13 @@ typedef struct {
 	int   etat;
 	*/
 
-typedef struct {
+typedef struct _rocket{
 	int   direction;
 	int   posX;
 	int   posY;
 	char  type; // (U)ser - (E)nemy
 	int   alive;
+	struct _rocket *next_rocket;
 }rocket;
 
 typedef struct {

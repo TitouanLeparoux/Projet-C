@@ -32,14 +32,25 @@ void load_tabMap()
   mLoad = 1;
 }
 
+/*********************************************************/
+
+/*
 void malloc_listTank() {
   TANKS = malloc(NBR_TK_MAX * sizeof(double)); }
+*/
 
 void load_listTank() {
+/*
   for (unsigned int i = 0; i < (NBR_TK_MAX) ; i++) {
-    // TANKS[i].alive = 0; 
+    TANKS[i].alive = 0; 
   }
+*/
+  
+  create_tank(SCL * 1,        SCL * 1,    'E',    2);
+  create_tank(SCL * (L-2),    SCL * 1,    'E',    2);
+  create_tank(SCL * 1    ,    SCL * 8,    'E',    2);
 
+/*
   TANKS[0].type = 'E'; // tank ENEMY
   TANKS[0].posX = SCL * 1; 
   TANKS[0].posY = SCL * 1;
@@ -52,7 +63,6 @@ void load_listTank() {
   TANKS[1].direction = 2;
   TANKS[1].alive = 1;
 
-/*
   TANKS[2].type = 'E'; // tank ENEMY
   TANKS[2].posX = SCL * 1; 
   TANKS[2].posY = SCL * 8;
@@ -69,15 +79,77 @@ void load_listTank() {
   tLoad = 1;
 }
 
+void create_tank(int posX, int posY, char type, int direction) {
+  // Initialise les tanks
+  tank* t = malloc(sizeof(tank));
 
+  t->posX = posX;
+  t->posY = posY;
+  t->type = type;
+  t->direction = direction;
+  t->alive = 1;
+  t->next_tank = NULL;
+  
+  ajouter_liste_tank(t);
+}
+
+void ajouter_liste_tank(tank *t) {
+  t->next_tank = FIRST_TK;
+  FIRST_TK = t;
+}
+
+/*********************************************************/
+
+/*
 void malloc_listRocket() {
   ROCKETS = malloc(NBR_RK_MAX * sizeof(double)); }
+*/
 
 void load_listRocket()
 {
   for (unsigned int i = 0; i < NBR_RK_MAX; i++) {
     ROCKETS[i].alive = 0; }
   rLoad = 1;
+}
+
+void create_roquet(int posX, int posY, char type, int direction) {
+  // Initialise les tanks
+  rocket* r = malloc(sizeof(rocket));
+
+  r->posX = posX;
+  r->posY = posY;
+  r->type = type;
+  r->direction = direction;
+  r->alive = 1;
+  r->next_rocket = NULL;
+  
+  ajouter_liste_rocket(r);
+}
+
+void ajouter_liste_rocket(rocket *r) {
+  r->next_rocket = FIRST_RK;
+  FIRST_RK = r;
+}
+
+void supprimer_rocket(rocket *r) {
+  rocket *save_pos = FIRST_RK; 
+  rocket *tmp;
+
+  if(FIRST_RK == r){ // Si c'est le premier élément de la liste
+    tmp = FIRST_RK; // Stock le pointeur du premier élément actuem
+    FIRST_RK = FIRST_RK->next_rocket; // redefinir le premier élément de la liste sur le deuxième
+    free(tmp); // supprime le premier élément grace au stockage de son pointeur
+  }
+  else {
+    while(save_pos->next_rocket != r && save_pos != NULL){ // Parcourir la liste pour s'arrêter au tank précédent
+      save_pos = save_pos->next_rocket; 
+    }
+    if (save_pos != NULL) { 
+      tmp = save_pos->next_rocket; // sauvergarde la position du tank d'après celui que l'on veut supprimer
+      save_pos->next_rocket = tmp->next_rocket; // on definir le pointeur sur le tank d'après comme celui que l'on veut supprimer
+      free(tmp); // On supprime le tank
+    }
+  }
 }
 
 /*********************************************************/

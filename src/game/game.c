@@ -3,15 +3,16 @@ int load_game()
   mLoad = 0; tLoad = 0; rLoad = 0;
 
   malloc_tabMap();
-  malloc_listTank();
-  malloc_listRocket();
+  // malloc_listTank();
+  // malloc_listRocket();
 
-  // TK_user = malloc(sizeof(tank));
-  TK_user.type = 'U'; // tank USER
-  TK_user.posX = SCL * L/2; 
-  TK_user.posY = SCL * 10;
-  TK_user.direction = 2;
-  TK_user.alive = 1;
+  TK_user = malloc(sizeof(tank));
+  TK_user->type = 'U'; // tank USER
+  TK_user->posX = SCL * L/2; 
+  TK_user->posY = SCL * 10;
+  TK_user->direction = 2;
+  TK_user->alive = 1;
+  TK_user->next_tank = NULL;
 
   // GAME LOOP
   int continuer = 1; 

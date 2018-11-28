@@ -17,14 +17,18 @@ int mLoad;
 blockMap **MAP;
 
 // make tank user
-tank TK_user;
+tank *TK_user;
 int tLoad;
 tank *TANKS;
 
+tank *FIRST_TK;
+
 clock_t TIME_MEM[5];
 int SPEED_TANK = 150000;
-int PROBA_DIR_TANK = 2;
+int PROBA_DIR_TANK = 3;
 
 // make tank rocket
 int rLoad;
 rocket *ROCKETS; 
+
+rocket *FIRST_RK;
