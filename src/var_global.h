@@ -8,7 +8,15 @@ int PROBA_DIR_TANK = 3;
 
 SDL_Surface *screen;
 
-// Struct image
+/*************************************************/
+
+// Stuct image menu
+imgMenu IMGMENU;
+unsigned posCursor;
+
+/*************************************************/
+
+// Struct image game
 imgM IMGM;
 imgT IMGT;
 imgR IMGR;

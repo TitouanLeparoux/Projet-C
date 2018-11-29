@@ -15,6 +15,11 @@
 #include "var_global.h"
 #include "prototype.h"
 
+// INCLUDE MENU FILE
+#include "menu/menu.c"
+#include "menu/menu_load.c"
+#include "menu/menu_controlKey.c"
+#include "menu/menu_printObject.c"
 // INCLUDE GAME FILE
 #include "game/game.c"
 #include "game/game_load.c"
@@ -31,7 +36,7 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
-
+  load_menu();
   load_game();
 
 

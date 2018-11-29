@@ -1,3 +1,15 @@
+typedef struct {
+	int 		load;
+	SDL_Surface *backGround;
+	SDL_Surface *play;
+	SDL_Surface *quit;
+	SDL_Surface *easy;
+	SDL_Surface *medium;
+	SDL_Surface *hard;
+}imgMenu;
+
+/*************************************************/
+
 typedef struct _tank {
 	int   direction;
 	int   posX;
@@ -20,6 +32,7 @@ typedef struct {
 	char type;
 	int	 life;
 }blockMap;
+
 
 typedef struct {
 	int 		load;
