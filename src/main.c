@@ -27,7 +27,7 @@
 #include "game/game_printObject.c"
 
 
-int main(int argc, char *argv[])
+int main(/*int argc, char *argv[]*/)
 {    
   /*******************************************************/
   SDL_Init(SDL_INIT_VIDEO);
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
-  load_menu();
+  // load_menu();
   load_game();
 
 

@@ -137,7 +137,7 @@ void print_rocketsList()
     if (crt_rk->alive == 1) {
       if (MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type == 'w') {
          MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type = ' ';
-        crt_rk->alive = 0;
+         crt_rk->alive = 0;
       }
       else {
 
@@ -150,6 +150,7 @@ void print_rocketsList()
           }
           else if (crt_rk->posX == TK_user->posX && crt_rk->posY == TK_user->posY && crt_rk->type == 'E') {
             TK_user->alive = 0;
+            CONTINUE = 1;
             supprimer_rocket(crt_rk);
           }
         crt_tk = crt_tk->next_tank; j++;

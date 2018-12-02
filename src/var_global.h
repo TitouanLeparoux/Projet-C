@@ -8,11 +8,14 @@ int PROBA_DIR_TANK = 3;
 
 SDL_Surface *screen;
 
+unsigned int CONTINUE;
+
+unsigned int DIFFICULTY;
 /*************************************************/
 
 // Stuct image menu
 imgMenu IMGMENU;
-unsigned posCursor;
+int posTankCursor;
 
 /*************************************************/
 

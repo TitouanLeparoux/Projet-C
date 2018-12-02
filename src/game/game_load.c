@@ -35,10 +35,19 @@ void load_tabMap()
 /*********************************************************/
 
 void load_listTank() {
-  create_tank(SCL * 1,        SCL * 1,    'E',    2);
-  create_tank(SCL * (L-2),    SCL * 1,    'E',    2);
-  create_tank(SCL * 1    ,    SCL * 8,    'E',    2);
-  create_tank(SCL * (L-2),    SCL * 8,    'E',    2);
+
+    // LEVEL EASY
+    if (DIFFICULTY >= 1) {
+      create_tank(SCL * 1    , SCL*1, 'E', 2); }
+    
+    // LEVEL MEDIUM
+    if (DIFFICULTY >= 2) { 
+      create_tank(SCL * (L-2), SCL*1, 'E', 2); }
+    
+    // LEVEL HARD
+    if (DIFFICULTY >= 3) { 
+      create_tank(SCL * 1    , SCL*8, 'E', 2); 
+      create_tank(SCL * (L-2), SCL*8, 'E', 2); }
 
   tLoad = 1;
 }
@@ -60,6 +69,19 @@ void create_tank(int posX, int posY, char type, int direction) {
 void ajouter_liste_tank(tank *t) {
   t->next_tank = FIRST_TK;
   FIRST_TK = t;
+}
+
+void free_tank_list() {
+  // parcourt la liste et libère chaque élément
+  tank *save_pos = FIRST_TK;
+  tank *tmp;
+
+  while(save_pos != NULL) {
+    // Avant de supprimer le maillon : 
+    tmp = save_pos->next_tank; // garde en memoire celui qui pointe vers le suivant
+    free(save_pos); // on libère le maillon
+    save_pos = tmp; // on fait pointer la tête de la chaine vers pointeur enregistrer
+  }
 }
 
 /*********************************************************/

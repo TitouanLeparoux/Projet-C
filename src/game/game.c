@@ -1,9 +1,11 @@
-int load_game()
+void load_game()
 {
-  mLoad = 0; tLoad = 0; rLoad = 0;
+  // MENU
+  // menuLoad = 0;
 
+  // GAME
+  mLoad = 0; tLoad = 0;
   malloc_tabMap();
-
   TK_user = malloc(sizeof(tank));
   TK_user->type = 'U'; // tank USER
   TK_user->posX = SCL * L/2; 
@@ -12,28 +14,46 @@ int load_game()
   TK_user->alive = 1;
   TK_user->next_tank = NULL;
 
-  // GAME LOOP
-  int continuer = 1; 
-  while (continuer == 1) {
-    continuer = game(continuer);
+  // >>> GAME LOOP
+  CONTINUE = 1; 
+  while (CONTINUE != 0) {
+    game();
   }
   
+  // MENU
+  deload_imgMenu();
+
+  // GAME
   deload_imgMap();
   deload_imgTank();
   deload_imgRocket();
-  return 0;
 }
 
 
 // GAME LOOP
-int game(int continuer)
+void game()
 {
-  continuer = control_key(continuer);
 
-  print_map();
-  print_tanksList();
-  print_rocketsList();
-  
+  switch (CONTINUE) {
+    // case 0 --> QUIT PROGRAM
+
+    case 1: // MAIN MENU
+      control_key_mainMenu();
+      print_mainMenu();
+      break;
+
+    case 2: // DIFFICULTY MENU
+      control_key_difficultyMenu();
+      print_difficultyMenu();
+      break;
+
+    case 3: // GAME
+      control_key();
+      print_map();
+      print_tanksList();
+      print_rocketsList();
+      break;
+  }
+
   SDL_Flip(screen);
-  return continuer;
 }

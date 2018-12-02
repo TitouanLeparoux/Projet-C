@@ -1,16 +1,18 @@
-int control_key(int continuer)
+void control_key()
 {
   SDL_Event event;
   int save_dir = 0;
 
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
-      case SDL_QUIT: continuer = 0; break;
+      
+      case SDL_QUIT: CONTINUE = 1; break;
+      
       case SDL_KEYDOWN: 
         save_dir = TK_user->direction;
         switch (event.key.keysym.sym) {
         
-        case SDLK_ESCAPE: continuer = 0; break;
+        case SDLK_ESCAPE: CONTINUE = 1; break;
         
         case SDLK_DOWN:
           TK_user->direction = 2;
@@ -44,6 +46,4 @@ int control_key(int continuer)
       }
     }
   }
-  
-  return continuer;
 }

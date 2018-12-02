@@ -1,25 +1,24 @@
-int load_menu()
+/*
+void load_menu()
 {
-  mLoad = 0;
+  // mLoad = 0;
 
   // GAME LOOP
-  int continuer = 1; 
-  while (continuer == 1) {
-    continuer = menu(continuer);
+  CONTINUE = 1; 
+  while (CONTINUE == 1) {
+    menu();
   }
   
   deload_imgMenu();
-  return 0;
 }
 
 
 // GAME LOOP
-int menu(int continuer)
+void menu()
 {
-  continuer = control_key_menu(continuer);
-
+  control_key_menu();
   print_menu();
   
   SDL_Flip(screen);
-  return continuer;
 }
+*/

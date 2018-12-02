@@ -1,12 +1,16 @@
 // MENU.C
-int load_menu();
-int menu(int continuer);
+/*
+void load_menu();
+void menu();
+*/
 
 // MENU_CONTROLE_KEY.C
-int control_key_menu(int continuer);
+void control_key_mainMenu();
+void control_key_difficultyMenu();
 
 // MENU_PRINT_OBJ.C
-void print_menu();
+void print_mainMenu();
+void print_difficultyMenu();
 
 // MENU_LOAD.C
 void load_imgMenu();
@@ -16,11 +20,11 @@ void deload_imgMenu();
 /*************************************************/
 
 // GAME.C
-int load_game();
-int game(int continuer);
+void load_game();
+void game(/*int continuer*/);
 
 // GAME_CONTROLE_KEY.C
-int control_key(int continuer);
+void control_key(/*int continuer*/);
 
 // GAME_PRINT_OBJ.C
 void print_map();
@@ -37,6 +41,7 @@ void load_tabMap();
 void load_listTank();
 void create_tank(int posX, int posY, char type, int direction);
 void ajouter_liste_tank(tank *t);
+void free_tank_list();
 
 void create_roquet(int posX, int posY, char type, int direction);
 void ajouter_liste_rocket(rocket *r);

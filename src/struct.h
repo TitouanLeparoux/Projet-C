@@ -6,6 +6,8 @@ typedef struct {
 	SDL_Surface *easy;
 	SDL_Surface *medium;
 	SDL_Surface *hard;
+	SDL_Surface *TKRight;
+	SDL_Surface *TKLeft;
 }imgMenu;
 
 /*************************************************/
