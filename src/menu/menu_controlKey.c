@@ -75,6 +75,8 @@ void control_key_difficultyMenu()
 void control_key_endMenu()
 {
   SDL_Event event;
+  posTankCursor = 0;
+
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
      

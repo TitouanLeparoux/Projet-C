@@ -1,9 +1,3 @@
-// MENU.C
-/*
-void load_menu();
-void menu();
-*/
-
 // MENU_CONTROLE_KEY.C
 void control_key_mainMenu();
 void control_key_difficultyMenu();
