@@ -16,7 +16,6 @@
 #include "prototype.h"
 
 // INCLUDE MENU FILE
-#include "menu/menu.c"
 #include "menu/menu_load.c"
 #include "menu/menu_controlKey.c"
 #include "menu/menu_printObject.c"

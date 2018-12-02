@@ -8,6 +8,8 @@ typedef struct {
 	SDL_Surface *hard;
 	SDL_Surface *TKRight;
 	SDL_Surface *TKLeft;
+	SDL_Surface *win;
+	SDL_Surface *gameOver;
 }imgMenu;
 
 /*************************************************/

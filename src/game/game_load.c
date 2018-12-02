@@ -153,24 +153,24 @@ void supprimer_rocket(rocket *r) {
 
 void load_imgMap() 
 {
-  IMGM.durt = IMG_Load("img/deep_durt.png");
-  IMGM.w1 = IMG_Load("img/wall.png");
-  IMGM.w2 = IMG_Load("img/wall_used.png");
+  IMGM.durt = IMG_Load("img/wall/deep_durt.png");
+  IMGM.w1 = IMG_Load("img/wall/wall.png");
+  IMGM.w2 = IMG_Load("img/wall/wall_used.png");
   
   IMGM.load = 1;
 }
 
 void load_imgTank() 
 {
-  IMGT.TU2 = IMG_Load("img/tank/tankB_down.png");
-  IMGT.TU4 = IMG_Load("img/tank/tankB_left.png");
-  IMGT.TU6 = IMG_Load("img/tank/tankB_right.png");
-  IMGT.TU8 = IMG_Load("img/tank/tankB_up.png");
+  IMGT.TU2 = IMG_Load("img/tank/tankB_2_down.png");
+  IMGT.TU4 = IMG_Load("img/tank/tankB_2_left.png");
+  IMGT.TU6 = IMG_Load("img/tank/tankB_2_right.png");
+  IMGT.TU8 = IMG_Load("img/tank/tankB_2_up.png");
 
-  IMGT.TE2 = IMG_Load("img/tank/tankG_down.png");
-  IMGT.TE4 = IMG_Load("img/tank/tankG_left.png");
-  IMGT.TE6 = IMG_Load("img/tank/tankG_right.png");
-  IMGT.TE8 = IMG_Load("img/tank/tankG_up.png");
+  IMGT.TE2 = IMG_Load("img/tank/tankG_2_down.png");
+  IMGT.TE4 = IMG_Load("img/tank/tankG_2_left.png");
+  IMGT.TE6 = IMG_Load("img/tank/tankG_2_right.png");
+  IMGT.TE8 = IMG_Load("img/tank/tankG_2_up.png");
 
   IMGT.load = 1;
 }
