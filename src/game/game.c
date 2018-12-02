@@ -11,7 +11,7 @@ void load_game()
   TK_user->posX = SCL * L/2; 
   TK_user->posY = SCL * 10;
   TK_user->direction = 2;
-  TK_user->alive = 1;
+  TK_user->alive = 3;
   TK_user->next_tank = NULL;
 
   // >>> GAME LOOP

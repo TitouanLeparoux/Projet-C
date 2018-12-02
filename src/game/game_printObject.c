@@ -34,7 +34,7 @@ void print_tanksList()
   tank *crt_tk = FIRST_TK; int i = 0; // crt_tk = current tank
   while (crt_tk != NULL) {
 
-    if (crt_tk->alive == 1) {
+    if (crt_tk->alive > 0) {
       print_tank(crt_tk);
 
       if (clock() > TIME_MEM[i] + SPEED_TANK) {
@@ -111,21 +111,65 @@ void print_tank(tank *tankMove)
   if (IMGT.load == 0) { load_imgTank(); }
 
   if(tankMove->type =='U') {
-    if (TK_user->alive == 1) {
-      switch (tankMove->direction) {
-        case 2: SDL_BlitSurface(IMGT.TU2, NULL, screen, &posTK); break;
-        case 4: SDL_BlitSurface(IMGT.TU4, NULL, screen, &posTK); break;
-        case 6: SDL_BlitSurface(IMGT.TU6, NULL, screen, &posTK); break;
-        case 8: SDL_BlitSurface(IMGT.TU8, NULL, screen, &posTK); break;
+    if (tankMove->alive > 0) {
+      if (tankMove->direction == 2) {
+        switch(tankMove->alive) {
+          case 1: SDL_BlitSurface(IMGT.TU12, NULL, screen, &posTK); break;
+          case 2: SDL_BlitSurface(IMGT.TU22, NULL, screen, &posTK); break;
+          case 3: SDL_BlitSurface(IMGT.TU32, NULL, screen, &posTK); break;
+        }
+      }
+      else if (tankMove->direction == 4) {
+        switch(tankMove->alive) {
+          case 1: SDL_BlitSurface(IMGT.TU14, NULL, screen, &posTK); break;
+          case 2: SDL_BlitSurface(IMGT.TU24, NULL, screen, &posTK); break;
+          case 3: SDL_BlitSurface(IMGT.TU34, NULL, screen, &posTK); break;
+        }
+      }
+      else if (tankMove->direction == 6) {
+        switch(tankMove->alive) {
+          case 1: SDL_BlitSurface(IMGT.TU16, NULL, screen, &posTK); break;
+          case 2: SDL_BlitSurface(IMGT.TU26, NULL, screen, &posTK); break;
+          case 3: SDL_BlitSurface(IMGT.TU36, NULL, screen, &posTK); break;
+        }
+      }
+      else if (tankMove->direction == 8) {
+        switch(tankMove->alive) {
+          case 1: SDL_BlitSurface(IMGT.TU18, NULL, screen, &posTK); break;
+          case 2: SDL_BlitSurface(IMGT.TU28, NULL, screen, &posTK); break;
+          case 3: SDL_BlitSurface(IMGT.TU38, NULL, screen, &posTK); break;
+        }
       }
     }
   }
   else {
-    switch (tankMove->direction) {
-      case 2: SDL_BlitSurface(IMGT.TE2, NULL, screen, &posTK); break;
-      case 4: SDL_BlitSurface(IMGT.TE4, NULL, screen, &posTK); break;
-      case 6: SDL_BlitSurface(IMGT.TE6, NULL, screen, &posTK); break;
-      case 8: SDL_BlitSurface(IMGT.TE8, NULL, screen, &posTK); break;
+    if (tankMove->direction == 2) {
+      switch(tankMove->alive) {
+        case 1: SDL_BlitSurface(IMGT.TE12, NULL, screen, &posTK); break;
+        case 2: SDL_BlitSurface(IMGT.TE22, NULL, screen, &posTK); break;
+        case 3: SDL_BlitSurface(IMGT.TE32, NULL, screen, &posTK); break;
+      }
+    }
+    else if (tankMove->direction == 4) {
+      switch(tankMove->alive) {
+        case 1: SDL_BlitSurface(IMGT.TE14, NULL, screen, &posTK); break;
+        case 2: SDL_BlitSurface(IMGT.TE24, NULL, screen, &posTK); break;
+        case 3: SDL_BlitSurface(IMGT.TE34, NULL, screen, &posTK); break;
+      }
+    }
+    else if (tankMove->direction == 6) {
+      switch(tankMove->alive) {
+        case 1: SDL_BlitSurface(IMGT.TE16, NULL, screen, &posTK); break;
+        case 2: SDL_BlitSurface(IMGT.TE26, NULL, screen, &posTK); break;
+        case 3: SDL_BlitSurface(IMGT.TE36, NULL, screen, &posTK); break;
+      }
+    }
+    else if (tankMove->direction == 8) {
+      switch(tankMove->alive) {
+        case 1: SDL_BlitSurface(IMGT.TE18, NULL, screen, &posTK); break;
+        case 2: SDL_BlitSurface(IMGT.TE28, NULL, screen, &posTK); break;
+        case 3: SDL_BlitSurface(IMGT.TE38, NULL, screen, &posTK); break;
+      }
     }
   }
 }
@@ -148,15 +192,19 @@ void print_rocketsList()
         tank *crt_tk = FIRST_TK; int j = 0;
         //for (unsigned int j = 0; j < NBR_TK_MAX; j++) {
         while (crt_tk != NULL) {
-          if (crt_rk->posX == crt_tk->posX && crt_rk->posY == crt_tk->posY && crt_rk->type == 'U' && crt_tk->alive == 1) {
-            crt_tk->alive = 0;
-            delete_tank(crt_tk);
-            supprimer_rocket(crt_rk);
+          if (crt_rk->posX == crt_tk->posX && crt_rk->posY == crt_tk->posY && crt_rk->type == 'U' && crt_tk->alive > 0) {
+            crt_tk->alive -= 1;
+            if (crt_tk->alive <= 0) {
+              delete_tank(crt_tk);
+              supprimer_rocket(crt_rk);
+            }
           }
           else if (crt_rk->posX == TK_user->posX && crt_rk->posY == TK_user->posY && crt_rk->type == 'E') {
-            TK_user->alive = 0;
-            CONTINUE = 4;
-            supprimer_rocket(crt_rk);
+            TK_user->alive -= 1;
+            if(TK_user->alive <= 0) {
+              CONTINUE = 4;
+              supprimer_rocket(crt_rk);
+            }
           }
         crt_tk = crt_tk->next_tank; j++;
         }

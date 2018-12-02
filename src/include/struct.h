@@ -41,15 +41,36 @@ typedef struct {
 typedef struct {
 	int 		load;
 	// TANK USER
-	SDL_Surface *TU2;
-	SDL_Surface *TU4;
-	SDL_Surface *TU6;
-	SDL_Surface *TU8;
-	// TANK ENEMY
-	SDL_Surface *TE2;
-	SDL_Surface *TE4;
-	SDL_Surface *TE6;
-	SDL_Surface *TE8;
+	SDL_Surface *TU12;
+	SDL_Surface *TU14;
+	SDL_Surface *TU16;
+	SDL_Surface *TU18;
+
+	SDL_Surface *TU22;
+	SDL_Surface *TU24;
+	SDL_Surface *TU26;
+	SDL_Surface *TU28;
+	
+	SDL_Surface *TU32;
+	SDL_Surface *TU34;
+	SDL_Surface *TU36;
+	SDL_Surface *TU38;
+	
+	// TANK ENEMYe
+	SDL_Surface *TE12;
+	SDL_Surface *TE14;
+	SDL_Surface *TE16;
+	SDL_Surface *TE18;
+	
+	SDL_Surface *TE22;
+	SDL_Surface *TE24;
+	SDL_Surface *TE26;
+	SDL_Surface *TE28;
+	
+	SDL_Surface *TE32;
+	SDL_Surface *TE34;
+	SDL_Surface *TE36;
+	SDL_Surface *TE38;
 }imgT;
 
 typedef struct {

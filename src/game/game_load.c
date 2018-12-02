@@ -60,7 +60,7 @@ void create_tank(int posX, int posY, char type, int direction) {
   t->posY = posY;
   t->type = type;
   t->direction = direction;
-  t->alive = 1;
+  t->alive = 3;
   t->next_tank = NULL;
   
   ajouter_liste_tank(t);
@@ -162,15 +162,31 @@ void load_imgMap()
 
 void load_imgTank() 
 {
-  IMGT.TU2 = IMG_Load("img/tank/tankB_2_down.png");
-  IMGT.TU4 = IMG_Load("img/tank/tankB_2_left.png");
-  IMGT.TU6 = IMG_Load("img/tank/tankB_2_right.png");
-  IMGT.TU8 = IMG_Load("img/tank/tankB_2_up.png");
+  IMGT.TU12 = IMG_Load("img/tank/tankB_1_down.png");
+  IMGT.TU14 = IMG_Load("img/tank/tankB_1_left.png");
+  IMGT.TU16 = IMG_Load("img/tank/tankB_1_right.png");
+  IMGT.TU18 = IMG_Load("img/tank/tankB_1_up.png");
+  IMGT.TU22 = IMG_Load("img/tank/tankB_2_down.png");
+  IMGT.TU24 = IMG_Load("img/tank/tankB_2_left.png");
+  IMGT.TU26 = IMG_Load("img/tank/tankB_2_right.png");
+  IMGT.TU28 = IMG_Load("img/tank/tankB_2_up.png");
+  IMGT.TU32 = IMG_Load("img/tank/tankB_3_down.png");
+  IMGT.TU34 = IMG_Load("img/tank/tankB_3_left.png");
+  IMGT.TU36 = IMG_Load("img/tank/tankB_3_right.png");
+  IMGT.TU38 = IMG_Load("img/tank/tankB_3_up.png");
 
-  IMGT.TE2 = IMG_Load("img/tank/tankG_2_down.png");
-  IMGT.TE4 = IMG_Load("img/tank/tankG_2_left.png");
-  IMGT.TE6 = IMG_Load("img/tank/tankG_2_right.png");
-  IMGT.TE8 = IMG_Load("img/tank/tankG_2_up.png");
+  IMGT.TE12 = IMG_Load("img/tank/tankG_1_down.png");
+  IMGT.TE14 = IMG_Load("img/tank/tankG_1_left.png");
+  IMGT.TE16 = IMG_Load("img/tank/tankG_1_right.png");
+  IMGT.TE18 = IMG_Load("img/tank/tankG_1_up.png");
+  IMGT.TE22 = IMG_Load("img/tank/tankG_2_down.png");
+  IMGT.TE24 = IMG_Load("img/tank/tankG_2_left.png");
+  IMGT.TE26 = IMG_Load("img/tank/tankG_2_right.png");
+  IMGT.TE28 = IMG_Load("img/tank/tankG_2_up.png");
+  IMGT.TE32 = IMG_Load("img/tank/tankG_3_down.png");
+  IMGT.TE34 = IMG_Load("img/tank/tankG_3_left.png");
+  IMGT.TE36 = IMG_Load("img/tank/tankG_3_right.png");
+  IMGT.TE38 = IMG_Load("img/tank/tankG_3_up.png");
 
   IMGT.load = 1;
 }
@@ -198,15 +214,31 @@ void deload_imgMap()
 void deload_imgTank()
 {
   // free surface iamge tank USER
-  SDL_FreeSurface(IMGT.TU2);
-  SDL_FreeSurface(IMGT.TU4);
-  SDL_FreeSurface(IMGT.TU6);
-  SDL_FreeSurface(IMGT.TU8);
+  SDL_FreeSurface(IMGT.TU12);
+  SDL_FreeSurface(IMGT.TU14);
+  SDL_FreeSurface(IMGT.TU16);
+  SDL_FreeSurface(IMGT.TU18);
+  SDL_FreeSurface(IMGT.TU22);
+  SDL_FreeSurface(IMGT.TU24);
+  SDL_FreeSurface(IMGT.TU26);
+  SDL_FreeSurface(IMGT.TU28);
+  SDL_FreeSurface(IMGT.TU32);
+  SDL_FreeSurface(IMGT.TU34);
+  SDL_FreeSurface(IMGT.TU36);
+  SDL_FreeSurface(IMGT.TU38);
   // free surface iamge tank ENEMY
-  SDL_FreeSurface(IMGT.TE2);
-  SDL_FreeSurface(IMGT.TE4);
-  SDL_FreeSurface(IMGT.TE6);
-  SDL_FreeSurface(IMGT.TE8);
+  SDL_FreeSurface(IMGT.TE12);
+  SDL_FreeSurface(IMGT.TE14);
+  SDL_FreeSurface(IMGT.TE16);
+  SDL_FreeSurface(IMGT.TE18);
+  SDL_FreeSurface(IMGT.TE22);
+  SDL_FreeSurface(IMGT.TE24);
+  SDL_FreeSurface(IMGT.TE26);
+  SDL_FreeSurface(IMGT.TE28);
+  SDL_FreeSurface(IMGT.TE32);
+  SDL_FreeSurface(IMGT.TE34);
+  SDL_FreeSurface(IMGT.TE36);
+  SDL_FreeSurface(IMGT.TE38);
 }
 
 void deload_imgRocket()
