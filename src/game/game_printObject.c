@@ -2,7 +2,7 @@ void print_map()
 {   
   // Rect for print txture block image
   SDL_Rect posBG; posBG.x = 0; posBG.y = 0;
- 
+  SDL_Rect posTiti; posTiti.x = TITI->posX; posTiti.y = TITI->posY;
   // Load only once in RAM texture image and text map
   if (IMGM.load == 0) { load_imgMap(); }
   if (mLoad == 0) { load_tabMap(); }
@@ -19,6 +19,8 @@ void print_map()
     posBG.x = 0;
     posBG.y += SCL;
   }
+
+  SDL_BlitSurface(IMGM.titi, NULL, screen, &posTiti);
 }
 
 void print_tanksList()
@@ -205,6 +207,12 @@ void print_rocketsList()
               CONTINUE = 4;
               supprimer_rocket(crt_rk);
             }
+          }
+          else if (crt_rk->posX == TITI->posX && crt_rk->posY == TITI->posY && crt_rk->type == 'E') {
+            TITI->alive = 0;
+            TK_user->alive = 0;
+            CONTINUE = 4;
+            supprimer_rocket(crt_rk);
           }
         crt_tk = crt_tk->next_tank; j++;
         }

@@ -14,6 +14,11 @@ void load_game()
   TK_user->alive = 3;
   TK_user->next_tank = NULL;
 
+  TITI = malloc(sizeof(titi));
+  TITI->posX = SCL * 10;
+  TITI->posY = SCL * 13;
+  TITI->alive = 1;
+
   // >>> GAME LOOP
   CONTINUE = 1; 
   while (CONTINUE != 0) {

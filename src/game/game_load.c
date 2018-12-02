@@ -156,6 +156,7 @@ void load_imgMap()
   IMGM.durt = IMG_Load("img/wall/deep_durt.png");
   IMGM.w1 = IMG_Load("img/wall/wall.png");
   IMGM.w2 = IMG_Load("img/wall/wall_used.png");
+  IMGM.titi = IMG_Load("img/titi/titi.png");
   
   IMGM.load = 1;
 }
@@ -166,23 +167,28 @@ void load_imgTank()
   IMGT.TU14 = IMG_Load("img/tank/tankB_1_left.png");
   IMGT.TU16 = IMG_Load("img/tank/tankB_1_right.png");
   IMGT.TU18 = IMG_Load("img/tank/tankB_1_up.png");
+  
   IMGT.TU22 = IMG_Load("img/tank/tankB_2_down.png");
   IMGT.TU24 = IMG_Load("img/tank/tankB_2_left.png");
   IMGT.TU26 = IMG_Load("img/tank/tankB_2_right.png");
   IMGT.TU28 = IMG_Load("img/tank/tankB_2_up.png");
+  
   IMGT.TU32 = IMG_Load("img/tank/tankB_3_down.png");
   IMGT.TU34 = IMG_Load("img/tank/tankB_3_left.png");
   IMGT.TU36 = IMG_Load("img/tank/tankB_3_right.png");
   IMGT.TU38 = IMG_Load("img/tank/tankB_3_up.png");
 
+  
   IMGT.TE12 = IMG_Load("img/tank/tankG_1_down.png");
   IMGT.TE14 = IMG_Load("img/tank/tankG_1_left.png");
   IMGT.TE16 = IMG_Load("img/tank/tankG_1_right.png");
   IMGT.TE18 = IMG_Load("img/tank/tankG_1_up.png");
+  
   IMGT.TE22 = IMG_Load("img/tank/tankG_2_down.png");
   IMGT.TE24 = IMG_Load("img/tank/tankG_2_left.png");
   IMGT.TE26 = IMG_Load("img/tank/tankG_2_right.png");
   IMGT.TE28 = IMG_Load("img/tank/tankG_2_up.png");
+  
   IMGT.TE32 = IMG_Load("img/tank/tankG_3_down.png");
   IMGT.TE34 = IMG_Load("img/tank/tankG_3_left.png");
   IMGT.TE36 = IMG_Load("img/tank/tankG_3_right.png");
@@ -209,6 +215,7 @@ void deload_imgMap()
   SDL_FreeSurface(IMGM.durt);
   SDL_FreeSurface(IMGM.w1);
   SDL_FreeSurface(IMGM.w2);
+  SDL_FreeSurface(IMGM.titi);
 }
 
 void deload_imgTank()

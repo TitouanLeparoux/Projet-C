@@ -24,6 +24,9 @@ imgM IMGM;
 imgT IMGT;
 imgR IMGR;
 
+// titi
+titi *TITI;
+
 // tab of struct block
 int mLoad;
 blockMap **MAP;

@@ -33,6 +33,12 @@ typedef struct _rocket{
 }rocket;
 
 typedef struct {
+	int   posX;
+	int   posY;
+	int   alive;
+}titi;
+
+typedef struct {
 	char type;
 	int	 life;
 }blockMap;
@@ -78,6 +84,7 @@ typedef struct {
 	SDL_Surface *durt;
 	SDL_Surface *w1;
 	SDL_Surface *w2;
+	SDL_Surface *titi;
 }imgM;
 
 typedef struct {
