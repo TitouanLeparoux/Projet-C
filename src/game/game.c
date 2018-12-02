@@ -39,7 +39,7 @@ void load_game()
 void game()
 {
 
-  switch (CONTINUE) {
+    switch (CONTINUE) {
     // case 0 --> QUIT PROGRAM
 
     case 1: // MAIN MENU

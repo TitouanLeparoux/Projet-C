@@ -2,7 +2,7 @@ void print_map()
 {   
   // Rect for print txture block image
   SDL_Rect posBG; posBG.x = 0; posBG.y = 0;
-  SDL_Rect posTiti; posTiti.x = TITI->posX; posTiti.y = TITI->posY;
+  SDL_Rect posTiti; posTiti.x = TITI->posX-(SCL/2); posTiti.y = TITI->posY;
   // Load only once in RAM texture image and text map
   if (IMGM.load == 0) { load_imgMap(); }
   if (mLoad == 0) { load_tabMap(); }
@@ -43,24 +43,24 @@ void print_tanksList()
         
         int prob_actuel_dir = 0;
         switch(crt_tk->direction) {
-          case 2: if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 4: if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 6: if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type != 'w' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
-          case 8: if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type != 'w' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 2: if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type == ' ' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 4: if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type == ' ' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 6: if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type == ' ' ) { prob_actuel_dir = PROBA_DIR_TANK; } break;
+          case 8: if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type == ' ' )   { prob_actuel_dir = PROBA_DIR_TANK; } break;
         }
         
         int size_possible = prob_actuel_dir;
-        if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type != 'w')    { size_possible += 1; }
-        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type != 'w')  { size_possible += 1; }
-        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type != 'w')  { size_possible += 1; }
-        if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type != 'w')    { size_possible += 1; }
+        if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type == ' ')    { size_possible += 1; }
+        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type == ' ')  { size_possible += 1; }
+        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type == ' ')  { size_possible += 1; }
+        if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type == ' ')    { size_possible += 1; }
         
         int tab_possible[size_possible];
         int posTabPoss = 0;
-        if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type != 'w')    { tab_possible[posTabPoss] = 2; posTabPoss += 1; }
-        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type != 'w')  { tab_possible[posTabPoss] = 4; posTabPoss += 1; }
-        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type != 'w')  { tab_possible[posTabPoss] = 6; posTabPoss += 1; }
-        if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type != 'w')    { tab_possible[posTabPoss] = 8; posTabPoss += 1; }
+        if (MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type == ' ')    { tab_possible[posTabPoss] = 2; posTabPoss += 1; }
+        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type == ' ')  { tab_possible[posTabPoss] = 4; posTabPoss += 1; }
+        if (MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type == ' ')  { tab_possible[posTabPoss] = 6; posTabPoss += 1; }
+        if (MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type == ' ')    { tab_possible[posTabPoss] = 8; posTabPoss += 1; }
         
         for (int j = 0; j < prob_actuel_dir; j++) {
           tab_possible[posTabPoss] = crt_tk->direction; 
@@ -73,27 +73,27 @@ void print_tanksList()
         int save_dir = 0;
         switch (dirActualTank) {
           case 2:
-            crt_tk->direction = 2;
-            if(MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type != 'w' ) {
+            if(crt_tk->direction == 2 && MAP[(crt_tk->posY+SCL)/SCL][crt_tk->posX/SCL].type == ' ' ) {
               crt_tk->posY += SCL; }
+            crt_tk->direction = 2;
             break;
           
           case 4:
-            crt_tk->direction = 4;
-            if(MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type != 'w' ) {
+            if(crt_tk->direction == 4 && MAP[(crt_tk->posY)/SCL][(crt_tk->posX-SCL)/SCL].type == ' ' ) {
               crt_tk->posX -= SCL; }
+            crt_tk->direction = 4;
             break;
           
           case 6:
-            crt_tk->direction = 6; 
-            if(MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type != 'w' ) {
+            if(crt_tk->direction == 6 && MAP[(crt_tk->posY)/SCL][(crt_tk->posX+SCL)/SCL].type == ' ' ) {
               crt_tk->posX += SCL; }
+            crt_tk->direction = 6; 
             break;
           
           case 8:
-            crt_tk->direction = 8;
-            if(MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type != 'w' ) {
+            if(crt_tk->direction == 8 && MAP[(crt_tk->posY-SCL)/SCL][crt_tk->posX/SCL].type == ' ' ) {
               crt_tk->posY -= SCL; }
+            crt_tk->direction = 8;
             break;
         }
         TIME_MEM[i] = clock();
@@ -185,10 +185,13 @@ void print_rocketsList()
   while (crt_rk != NULL) {
 
     if (crt_rk->alive == 1) {
-      if (MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type == 'w') {
-         MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type = ' ';
-         crt_rk->alive = 0;
-      }
+      if (MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type != ' ') 
+      {
+        switch (MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type ) {
+        case 'w': MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type = 'b'; crt_rk->alive = 0; break;
+        case 'b': MAP[crt_rk->posY/SCL][crt_rk->posX/SCL].type = ' '; crt_rk->alive = 0; break;
+        }
+      }  
       else {
 
         tank *crt_tk = FIRST_TK; int j = 0;
@@ -208,7 +211,8 @@ void print_rocketsList()
               supprimer_rocket(crt_rk);
             }
           }
-          else if (crt_rk->posX == TITI->posX && crt_rk->posY == TITI->posY && crt_rk->type == 'E') {
+          else if (crt_rk->posX == TITI->posX && crt_rk->posY == TITI->posY && crt_rk->type == 'E' 
+          || crt_rk->posX == TITI->posX-SCL && crt_rk->posY == TITI->posY && crt_rk->type == 'E') {
             TITI->alive = 0;
             TK_user->alive = 0;
             CONTINUE = 4;

@@ -11,7 +11,6 @@ void control_key()
         CONTINUE = 1; break;
       
       case SDL_KEYDOWN: 
-        save_dir = TK_user->direction;
         switch (event.key.keysym.sym) {
         
         case SDLK_ESCAPE: 
@@ -19,27 +18,29 @@ void control_key()
           CONTINUE = 1; break;
         
         case SDLK_DOWN:
-          TK_user->direction = 2;
-          if(save_dir == TK_user->direction && MAP[(TK_user->posY+SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
+
+          if(TK_user->direction == 2 && MAP[(TK_user->posY+SCL)/SCL][TK_user->posX/SCL].type == ' ' ) {
             TK_user->posY += SCL; }
+          TK_user->direction = 2;
           break;
         
         case SDLK_LEFT:
-          TK_user->direction = 4;
-          if(save_dir == TK_user->direction && MAP[(TK_user->posY)/SCL][(TK_user->posX-SCL)/SCL].type != 'w' ) {
+          if(TK_user->direction == 4 && MAP[(TK_user->posY)/SCL][(TK_user->posX-SCL)/SCL].type == ' ' ) {
             TK_user->posX -= SCL; }
+          TK_user->direction = 4;
           break;
         
         case SDLK_RIGHT:
-          TK_user->direction = 6; 
-          if(save_dir == TK_user->direction && MAP[(TK_user->posY)/SCL][(TK_user->posX+SCL)/SCL].type != 'w' ) {
+          if(TK_user->direction == 6 && MAP[(TK_user->posY)/SCL][(TK_user->posX+SCL)/SCL].type == ' ' ) {
             TK_user->posX += SCL; }
+          TK_user->direction = 6; 
           break;
         
         case SDLK_UP:
-          TK_user->direction = 8;
-          if(save_dir == TK_user->direction && MAP[(TK_user->posY-SCL)/SCL][TK_user->posX/SCL].type != 'w' ) {
+
+          if(TK_user->direction == 8 && MAP[(TK_user->posY-SCL)/SCL][TK_user->posX/SCL].type == ' ' ) {
             TK_user->posY -= SCL; }
+          TK_user->direction = 8;
           break;
         
         case SDLK_SPACE: ;

@@ -21,7 +21,8 @@ void load_tabMap()
       else {
         MAP[j][i].type = car_act;
         switch(car_act) {
-          case 'w': MAP[j][i].life = 1; break;
+          case 'w': MAP[j][i].life = 2; break;
+          case 'b': MAP[j][i].life = 1; break;
           default : MAP[j][i].life = 0; break;
         }
         i++;

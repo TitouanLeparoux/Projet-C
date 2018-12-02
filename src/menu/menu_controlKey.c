@@ -42,6 +42,7 @@ void control_key_difficultyMenu()
       case SDL_KEYDOWN: switch (event.key.keysym.sym) {
         
         case SDLK_ESCAPE: 
+          posTankCursor = 0; 
           CONTINUE = 1; 
           break;
         
