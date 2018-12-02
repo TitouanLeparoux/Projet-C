@@ -71,3 +71,23 @@ void control_key_difficultyMenu()
     }
   }
 }
+
+void control_key_endMenu()
+{
+  SDL_Event event;
+  while (SDL_PollEvent(&event)) {
+    switch (event.type) {
+     
+      case SDL_QUIT: CONTINUE = 0; break;
+      
+      case SDL_KEYDOWN: switch (event.key.keysym.sym) {
+        
+        case SDLK_RETURN:
+          CONTINUE = 0;
+          break;
+
+        default: /* NONE */;
+      }
+    }
+  }
+}

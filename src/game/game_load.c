@@ -71,6 +71,27 @@ void ajouter_liste_tank(tank *t) {
   FIRST_TK = t;
 }
 
+void delete_tank(tank *t) {
+  tank *save_pos = FIRST_TK; 
+  tank *tmp;
+
+  if(FIRST_TK == t){ // Si c'est le premier élément de la liste
+    tmp = FIRST_TK; // Stock le pointeur du premier élément actuem
+    FIRST_TK = FIRST_TK->next_tank; // redefinir le premier élément de la liste sur le deuxième
+    free(tmp); // supprime le premier élément grace au stockage de son pointeur
+  }
+  else {
+    while(save_pos->next_tank != t && save_pos != NULL){ // Parcourir la liste pour s'arrêter au tank précédent
+      save_pos = save_pos->next_tank; 
+    }
+    if (save_pos != NULL) { 
+      tmp = save_pos->next_tank; // sauvergarde la position du tank d'après celui que l'on veut supprimer
+      save_pos->next_tank = tmp->next_tank; // on definir le pointeur sur le tank d'après comme celui que l'on veut supprimer
+      free(tmp); // On supprime le tank
+    }
+  }
+}
+
 void free_tank_list() {
   // parcourt la liste et libère chaque élément
   tank *save_pos = FIRST_TK;
@@ -82,6 +103,7 @@ void free_tank_list() {
     free(save_pos); // on libère le maillon
     save_pos = tmp; // on fait pointer la tête de la chaine vers pointeur enregistrer
   }
+  FIRST_TK = NULL;
 }
 
 /*********************************************************/

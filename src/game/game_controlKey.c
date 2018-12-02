@@ -6,13 +6,17 @@ void control_key()
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
       
-      case SDL_QUIT: CONTINUE = 1; break;
+      case SDL_QUIT: 
+        posTankCursor = 0;
+        CONTINUE = 1; break;
       
       case SDL_KEYDOWN: 
         save_dir = TK_user->direction;
         switch (event.key.keysym.sym) {
         
-        case SDLK_ESCAPE: CONTINUE = 1; break;
+        case SDLK_ESCAPE: 
+          posTankCursor = 0;
+          CONTINUE = 1; break;
         
         case SDLK_DOWN:
           TK_user->direction = 2;

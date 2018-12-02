@@ -28,4 +28,5 @@ void deload_imgMenu()
   SDL_FreeSurface(IMGMENU.hard);
 	SDL_FreeSurface(IMGMENU.TKRight);
 	SDL_FreeSurface(IMGMENU.TKLeft);  
+  
 }

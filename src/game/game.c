@@ -53,6 +53,11 @@ void game()
       print_tanksList();
       print_rocketsList();
       break;
+
+    case 4: // WIN or GAME OVER
+      control_key_endMenu();
+      print_endMenu();
+      break;
   }
 
   SDL_Flip(screen);

@@ -36,7 +36,7 @@ int main(/*int argc, char *argv[]*/)
   SDL_WM_SetCaption("TANK GAME !", NULL);
   /*******************************************************/
 
-  // load_menu();
+
   load_game();
 
 

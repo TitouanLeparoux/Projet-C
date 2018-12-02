@@ -27,6 +27,10 @@ void print_tanksList()
 
   print_tank(TK_user);
 
+  if (FIRST_TK == NULL) {
+    CONTINUE = 4;
+  }
+
   tank *crt_tk = FIRST_TK; int i = 0; // crt_tk = current tank
   while (crt_tk != NULL) {
 
@@ -146,11 +150,12 @@ void print_rocketsList()
         while (crt_tk != NULL) {
           if (crt_rk->posX == crt_tk->posX && crt_rk->posY == crt_tk->posY && crt_rk->type == 'U' && crt_tk->alive == 1) {
             crt_tk->alive = 0;
+            delete_tank(crt_tk);
             supprimer_rocket(crt_rk);
           }
           else if (crt_rk->posX == TK_user->posX && crt_rk->posY == TK_user->posY && crt_rk->type == 'E') {
             TK_user->alive = 0;
-            CONTINUE = 1;
+            CONTINUE = 4;
             supprimer_rocket(crt_rk);
           }
         crt_tk = crt_tk->next_tank; j++;
