@@ -38,13 +38,13 @@ void load_tabMap();
 
 void load_listTank();
 void create_tank(int posX, int posY, char type, int direction);
-void ajouter_liste_tank(tank *t);
+void create_list_tank(tank *t);
 void delete_tank(tank *t);
 void free_tank_list();
 
 void create_roquet(int posX, int posY, char type, int direction);
-void ajouter_liste_rocket(rocket *r);
-void supprimer_rocket(rocket *r);
+void create_list_rocket(rocket *r);
+void delete_rocket(rocket *r);
 
 void load_imgMap();
 void load_imgTank();

@@ -1,7 +1,6 @@
 void load_game()
 {
   // MENU
-  // menuLoad = 0;
 
   // GAME
   mLoad = 0; tLoad = 0;
@@ -40,6 +39,7 @@ void game()
 {
 
     switch (CONTINUE) {
+  
     // case 0 --> QUIT PROGRAM
 
     case 1: // MAIN MENU

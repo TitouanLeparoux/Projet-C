@@ -201,14 +201,14 @@ void print_rocketsList()
             crt_tk->alive -= 1;
             if (crt_tk->alive <= 0) {
               delete_tank(crt_tk);
-              supprimer_rocket(crt_rk);
+              delete_rocket(crt_rk);
             }
           }
           else if (crt_rk->posX == TK_user->posX && crt_rk->posY == TK_user->posY && crt_rk->type == 'E') {
             TK_user->alive -= 1;
             if(TK_user->alive <= 0) {
               CONTINUE = 4;
-              supprimer_rocket(crt_rk);
+              delete_rocket(crt_rk);
             }
           }
           else if (crt_rk->posX == TITI->posX && crt_rk->posY == TITI->posY && crt_rk->type == 'E' 
@@ -216,7 +216,7 @@ void print_rocketsList()
             TITI->alive = 0;
             TK_user->alive = 0;
             CONTINUE = 4;
-            supprimer_rocket(crt_rk);
+            delete_rocket(crt_rk);
           }
         crt_tk = crt_tk->next_tank; j++;
         }

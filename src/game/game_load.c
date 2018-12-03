@@ -64,10 +64,10 @@ void create_tank(int posX, int posY, char type, int direction) {
   t->alive = 3;
   t->next_tank = NULL;
   
-  ajouter_liste_tank(t);
+  create_list_tank(t);
 }
 
-void ajouter_liste_tank(tank *t) {
+void create_list_tank(tank *t) {
   t->next_tank = FIRST_TK;
   FIRST_TK = t;
 }
@@ -76,33 +76,33 @@ void delete_tank(tank *t) {
   tank *save_pos = FIRST_TK; 
   tank *tmp;
 
-  if(FIRST_TK == t){ // Si c'est le premier élément de la liste
-    tmp = FIRST_TK; // Stock le pointeur du premier élément actuem
-    FIRST_TK = FIRST_TK->next_tank; // redefinir le premier élément de la liste sur le deuxième
-    free(tmp); // supprime le premier élément grace au stockage de son pointeur
+  if(FIRST_TK == t){ 
+    tmp = FIRST_TK; 
+    FIRST_TK = FIRST_TK->next_tank; 
+    free(tmp); 
   }
   else {
-    while(save_pos->next_tank != t && save_pos != NULL){ // Parcourir la liste pour s'arrêter au tank précédent
+    while(save_pos->next_tank != t && save_pos != NULL){ 
       save_pos = save_pos->next_tank; 
     }
     if (save_pos != NULL) { 
-      tmp = save_pos->next_tank; // sauvergarde la position du tank d'après celui que l'on veut supprimer
-      save_pos->next_tank = tmp->next_tank; // on definir le pointeur sur le tank d'après comme celui que l'on veut supprimer
-      free(tmp); // On supprime le tank
+      tmp = save_pos->next_tank; 
+      save_pos->next_tank = tmp->next_tank; 
+      free(tmp); 
     }
   }
 }
 
 void free_tank_list() {
-  // parcourt la liste et libère chaque élément
+  
   tank *save_pos = FIRST_TK;
   tank *tmp;
 
   while(save_pos != NULL) {
-    // Avant de supprimer le maillon : 
-    tmp = save_pos->next_tank; // garde en memoire celui qui pointe vers le suivant
-    free(save_pos); // on libère le maillon
-    save_pos = tmp; // on fait pointer la tête de la chaine vers pointeur enregistrer
+    
+    tmp = save_pos->next_tank; 
+    free(save_pos); 
+    save_pos = tmp; 
   }
   FIRST_TK = NULL;
 }
@@ -110,7 +110,7 @@ void free_tank_list() {
 /*********************************************************/
 
 void create_roquet(int posX, int posY, char type, int direction) {
-  // Initialise les tanks
+  
   rocket* r = malloc(sizeof(rocket));
 
   r->posX = posX;
@@ -120,31 +120,31 @@ void create_roquet(int posX, int posY, char type, int direction) {
   r->alive = 1;
   r->next_rocket = NULL;
   
-  ajouter_liste_rocket(r);
+  create_list_rocket(r);
 }
 
-void ajouter_liste_rocket(rocket *r) {
+void create_list_rocket(rocket *r) {
   r->next_rocket = FIRST_RK;
   FIRST_RK = r;
 }
 
-void supprimer_rocket(rocket *r) {
+void delete_rocket(rocket *r) {
   rocket *save_pos = FIRST_RK; 
   rocket *tmp;
 
-  if(FIRST_RK == r){ // Si c'est le premier élément de la liste
-    tmp = FIRST_RK; // Stock le pointeur du premier élément actuem
-    FIRST_RK = FIRST_RK->next_rocket; // redefinir le premier élément de la liste sur le deuxième
-    free(tmp); // supprime le premier élément grace au stockage de son pointeur
+  if(FIRST_RK == r){ 
+    tmp = FIRST_RK; 
+    FIRST_RK = FIRST_RK->next_rocket; 
+    free(tmp); 
   }
   else {
-    while(save_pos->next_rocket != r && save_pos != NULL){ // Parcourir la liste pour s'arrêter au tank précédent
+    while(save_pos->next_rocket != r && save_pos != NULL){ 
       save_pos = save_pos->next_rocket; 
     }
     if (save_pos != NULL) { 
-      tmp = save_pos->next_rocket; // sauvergarde la position du tank d'après celui que l'on veut supprimer
-      save_pos->next_rocket = tmp->next_rocket; // on definir le pointeur sur le tank d'après comme celui que l'on veut supprimer
-      free(tmp); // On supprime le tank
+      tmp = save_pos->next_rocket; 
+      save_pos->next_rocket = tmp->next_rocket; 
+      free(tmp); 
     }
   }
 }
@@ -221,7 +221,7 @@ void deload_imgMap()
 
 void deload_imgTank()
 {
-  // free surface iamge tank USER
+  // free surface image tank USER
   SDL_FreeSurface(IMGT.TU12);
   SDL_FreeSurface(IMGT.TU14);
   SDL_FreeSurface(IMGT.TU16);
@@ -234,7 +234,7 @@ void deload_imgTank()
   SDL_FreeSurface(IMGT.TU34);
   SDL_FreeSurface(IMGT.TU36);
   SDL_FreeSurface(IMGT.TU38);
-  // free surface iamge tank ENEMY
+  // free surface image tank ENEMY
   SDL_FreeSurface(IMGT.TE12);
   SDL_FreeSurface(IMGT.TE14);
   SDL_FreeSurface(IMGT.TE16);
