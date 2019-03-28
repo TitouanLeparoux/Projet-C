@@ -12,13 +12,15 @@ Le projet est très facile à exécuter grâce au makefile. Lorsque la commande 
 > **NB :** Ce projet est susceptible de mal s’afficher sur quelques écrans à cause des soucis de pixels. On l’a donc programmé de façon à ce qu’il s’affiche bien sur les ordinateurs de l’école ESIEAParis. 
 
 ## Prérequis
+
 Ce projet nécessite des connaissances en langage C pour pouvoir y intégrer des couleurs, déplacer un char, générer des tanks ennemis en fonction du niveau de difficulté, détruire les murs de l’environnement grâce à l’utilisation de missiles et gérer les niveaux à l’aide de menus. 
 
-- Les listes chainées pour la gestion des tanks ennemis 
-- Les tableaux pour enregistrer la carte 
-- Les structures pour gérer différents attributs des tanks
-- La librairie SDL afin de pouvoir afficher de beaux design composés de pixels
-- Les entrées clavier pour pouvoir déplacer le tank 
+- Les listes chainées
+- Les tableaux
+- Les structures
+- La librairie SDL
+- Les entrées clavier
+- Le Makefile
   
 ## Le Jeu
 
@@ -46,19 +48,12 @@ Les tanks (joueur/ennemis) peuvent réaliser des tirs de missiles afin de pouvoi
 
 Les tanks possèdent 3 vies, ainsi ils peuvent subir 3 percutions de missile avant de mourir. La couleur du tank varie en fonction de son niveau de vie (Joueur : <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankB_3_up.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankB_2_up.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankB_1_up.png" width="15" /> / Ennemis : <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankG_3_up.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankG_2_up.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/tank/tankG_1_up.png" width="15" />) même avec les murs qui eux n’ont que deux vies (<img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/wall/wall.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/wall/wall_used.png" width="15" /> → <img src="https://github.com/TitouanLeparoux/TankGame/blob/master/src/img/wall/deep_durt.png" width="15" />)
 
-#### Niveaux de jeu 
+#### Niveau de jeu 
 
 Comme dit précédemment, il y a plusieurs niveaux de jeu : 
-- Facile : il y a un tank ennemi à éliminer et le « Titi » à protéger
-- Intermédiaire : il y a deux tanks ennemis à éliminer et le « Titi » à protéger 
-- Difficile : il y a quatre tanks ennemis à éliminer et le « Titi » à protéger
-
-#### Menus
-
-Il y a 3 menus : 
-- Principal
-- Choix de la difficulté
-- Affichage du résultat de la partie (gagné/perdu) 
+- **Facile :** il y a un tank ennemi à éliminer et le « Titi » à protéger
+- **Intermédiaire :** il y a deux tanks ennemis à éliminer et le « Titi » à protéger 
+- **Difficile :** il y a quatre tanks ennemis à éliminer et le « Titi » à protéger
 
 ## Conclusion
 
